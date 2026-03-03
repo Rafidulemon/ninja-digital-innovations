@@ -58,7 +58,7 @@ const Button = (props: Props) => {
     >
       {theme === "primary" && (
         <div
-          className={`${className} p-2 rounded-lg hover:border hover:border-primary hover:bg-white hover:text-primary bg-primary text-white`}
+          className={`${className} p-2 rounded-lg hover:border hover:border-primary hover:bg-white bg-primary text-white`}
         >
           <span className="flex flex-col justify-center">{children}</span>
         </div>

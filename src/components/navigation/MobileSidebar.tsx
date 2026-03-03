@@ -45,8 +45,8 @@ const MobileSideBar = ({
         <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
           <Link href="/" onClick={closeMenu}>
             <Image
-              src="/images/logo_main.png"
-              alt="Carriastic logo"
+              src="/images/ndi.logo.png"
+              alt="NDI logo"
               width={90}
               height={34}
               className="h-auto w-[90px]"
