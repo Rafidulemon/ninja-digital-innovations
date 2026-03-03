@@ -3,37 +3,46 @@ import Link from "next/link";
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { getNavItems } from "@/app/contants/navItems";
 
-const accentRing =
-  "relative overflow-hidden rounded-[14px] border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition hover:border-white/30 hover:shadow-[0_28px_60px_rgba(0,0,0,0.22)]";
-
 const Footer = () => {
   const navItems = getNavItems();
 
   return (
-    <footer className="relative mt-16 bg-gradient-to-br from-[#0b1024] via-[#0f172e] to-[#0f1e3d] text-white">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-24 top-10 h-56 w-56 rounded-full bg-[#3dd6b7]/15 blur-3xl" />
-        <div className="absolute right-0 top-1/3 h-64 w-64 rounded-full bg-[#7cc6ff]/10 blur-3xl" />
-        <div className="absolute -bottom-10 left-1/4 h-72 w-72 rounded-full bg-[#ffb347]/10 blur-3xl" />
+    <footer className="relative mt-16 overflow-hidden bg-gradient-to-br from-[#050915] via-[#0a1632] to-[#081129] text-white">
+      {/* Futuristic glow field */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-[#4fd1c5]/15 blur-[90px]" />
+        <div className="absolute right-[-12%] top-[14%] h-80 w-80 rounded-full bg-[#7c6bff]/18 blur-[110px]" />
+        <div className="absolute left-[18%] bottom-[-10%] h-96 w-96 rounded-full bg-[#38bdf8]/12 blur-[120px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(60deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:120px_120px] opacity-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.08),transparent_25%),radial-gradient(circle_at_80%_40%,rgba(255,255,255,0.08),transparent_30%)] opacity-35" />
       </div>
 
-      <div className="relative mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 py-14 md:px-10 md:py-16 lg:px-12">
-        <div className={`${accentRing} flex flex-col gap-4 px-6 py-5 md:flex-row md:items-center md:justify-between`}>
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-white/60">Let&apos;s build what&apos;s next</p>
-            <h3 className="mt-2 text-2xl font-semibold leading-tight md:text-3xl">
+      <div className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-6 py-14 md:px-10 md:py-16 lg:px-12">
+        {/* CTA rail */}
+        <div className="relative overflow-hidden rounded-[18px] border border-white/10 bg-white/5 px-6 py-5 shadow-[0_24px_70px_-50px_rgba(0,0,0,0.8)] backdrop-blur-md md:flex md:items-center md:justify-between">
+          <div className="pointer-events-none absolute inset-0 opacity-60">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#4fd1c5]/25 via-[#7c6bff]/20 to-[#38bdf8]/18" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_40%,rgba(255,255,255,0.08),transparent_28%),radial-gradient(circle_at_70%_60%,rgba(255,255,255,0.06),transparent_26%)]" />
+          </div>
+          <div className="relative flex flex-col gap-2">
+            <p className="text-xs uppercase tracking-[0.28em] text-white/70">Let&apos;s build what&apos;s next</p>
+            <h3 className="text-2xl font-semibold leading-tight md:text-3xl">
               Bold digital experiences, engineered with care.
             </h3>
+            <p className="text-sm text-white/70">
+              AI-native products, security-first platforms, and social-first storytelling—shipped by senior squads.
+            </p>
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-[12px] bg-gradient-to-r from-[#3dd6b7] via-[#5fb4ff] to-[#7c6bff] px-5 py-3 text-sm font-semibold text-[#0b1024] shadow-[0_14px_30px_rgba(59,166,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_34px_rgba(59,166,255,0.45)]"
+            className="relative mt-4 inline-flex items-center justify-center gap-2 rounded-[14px] bg-primaryBlue px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_38px_rgba(107,140,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgba(107,140,255,0.45)] md:mt-0"
           >
             Start a project
+            <span className="text-base">↗</span>
           </Link>
         </div>
 
-        <div className="grid gap-10 md:grid-cols-12 md:gap-6">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
             <Link href="/" className="inline-flex items-center gap-3">
               <Image
@@ -60,8 +69,9 @@ const Footer = () => {
                   key={item.href}
                   href={item.href}
                   aria-label={item.label}
-                  className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/15"
+                  className="relative flex size-10 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/10 text-white transition hover:-translate-y-0.5 hover:border-white/50 hover:shadow-[0_12px_30px_rgba(79,209,197,0.3)]"
                 >
+                  <span className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/0 opacity-0 transition group-hover:opacity-100" />
                   {item.icon}
                 </Link>
               ))}
@@ -100,9 +110,18 @@ const Footer = () => {
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.18em] text-white/50">Visit</p>
               <div className="text-white/80">
-                <p>Level 12, Innovation Tower</p>
-                <p>Dhaka, Bangladesh</p>
-                <p className="mt-2 text-white/60">Open for in-person sessions by appointment.</p>
+                <p>27 Shaptak Square, Plot No. 380 (Old), 2 (New)</p>
+                <p>Road No. 27 (Old), 16 (New)</p>
+                <p>Dhanmondi, Dhaka-1209, Bangladesh</p>
+                <Link
+                  href="https://www.google.com/maps?q=27+Shaptak+Square,+Dhanmondi,+Dhaka-1209,+Bangladesh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-white"
+                >
+                  View on Google Maps
+                  <span className="text-base">↗</span>
+                </Link>
               </div>
             </div>
           </div>
