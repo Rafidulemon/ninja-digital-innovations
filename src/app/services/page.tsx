@@ -120,7 +120,10 @@ const ServicesPage = () => {
   return (
     <div className="bg-white text-slate-900">
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#0c1a38] via-[#0b2c5c] to-[#0f172a] text-white">
+      <section
+        id="service-hero"
+        className="relative isolate -mt-16 flex min-h-[calc(100vh+4rem)] flex-col justify-center overflow-hidden bg-gradient-to-b from-black via-[#0b2f72] to-[#051331] text-white md:-mt-20 md:min-h-[calc(100vh+5rem)]"
+      >
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{
@@ -129,7 +132,7 @@ const ServicesPage = () => {
           }}
         />
         <div
-          className="absolute inset-0 opacity-45"
+          className="pointer-events-none absolute inset-0 opacity-45"
           style={{
             background:
               "linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02), rgba(255,255,255,0.04))",
@@ -142,9 +145,7 @@ const ServicesPage = () => {
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[12px] uppercase tracking-[0.28em] text-white/80 backdrop-blur">
               <FiHexagon size={14} aria-hidden /> Services
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-              Build. Secure. Scale.
-            </span>
+
           </div>
           <div className="flex flex-col gap-4">
             <h1 className="font-spaceGrotesk text-4xl font-semibold leading-tight sm:text-5xl md:text-[52px]">

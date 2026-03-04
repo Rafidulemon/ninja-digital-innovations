@@ -8,6 +8,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import MobileSideBar from "./MobileSidebar";
 import type { NavItem } from "@/app/contants/navItems";
 import { getNavItems } from "@/app/contants/navItems";
+import Button from "@/components/button/Button";
 
 type HeaderProps = {
   isDark?: boolean;
@@ -197,9 +198,14 @@ const Header = ({ isDark = false }: HeaderProps) => {
           <div className="hidden items-center gap-3 md:flex">
             <Link
               href="/contact"
-              className="cursor-pointer rounded-[10px] bg-gradient-to-r from-primary via-[#6d36dc] to-[#4b50e6] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(76,49,201,0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(76,49,201,0.32)]"
+              className="group"
             >
-              Contact
+              <Button
+                theme="dark"
+                className="px-5 py-2.5 text-sm font-semibold"
+              >
+                Contact
+              </Button>
             </Link>
           </div>
         </div>

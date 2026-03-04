@@ -5,7 +5,7 @@ import { type ReactNode, useEffect, useState } from "react";
 type Props = {
   children?: ReactNode;
   className?: string;
-  theme?: "primary" | "secondary" | "cancel" | "cancel-secondary" | "white";
+  theme?: "primary" | "secondary" | "cancel" | "cancel-secondary" | "white" | "dark";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   isWidthFull?: boolean;
   type?: "button" | "submit" | "reset";
@@ -53,7 +53,7 @@ const Button = (props: Props) => {
         setIsClicked(true);
         debouncedOnClick(e);
       }}
-      className={`${className} ${isWidthFull ? "w-full" : "w-fit"}`}
+      className={`${className} ${isWidthFull ? "w-full" : "w-fit"} cursor-pointer`}
       onFocus={() => {}}
     >
       {theme === "primary" && (
@@ -91,6 +91,14 @@ const Button = (props: Props) => {
       {theme === "white" && (
         <div
           className={`${className} p-2 rounded-lg bg-white text-black hover:scale-105`}
+        >
+          <span className="flex flex-col justify-center">{children}</span>
+        </div>
+      )}
+
+      {theme === "dark" && (
+        <div
+          className={`${className} p-2 rounded-lg border border-[#1937d6] bg-[#1937d6] text-white shadow-[0_12px_24px_rgba(25,55,214,0.28)] transition hover:-translate-y-0.5 hover:bg-[#2343eb] hover:shadow-[0_16px_32px_rgba(25,55,214,0.38)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b8cff]`}
         >
           <span className="flex flex-col justify-center">{children}</span>
         </div>

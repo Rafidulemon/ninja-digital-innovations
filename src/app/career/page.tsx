@@ -88,7 +88,10 @@ const CareerPage = () => {
   return (
     <div className="bg-white text-slate-900">
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#0c1a38] via-[#0b2c5c] to-[#0f172a] text-white">
+      <section
+        id="career-hero"
+        className="relative isolate -mt-16 flex min-h-[calc(100vh+4rem)] flex-col justify-center overflow-hidden bg-gradient-to-b from-black via-[#0b2f72] to-[#051331] text-white md:-mt-20 md:min-h-[calc(100vh+5rem)]"
+      >
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{
@@ -97,7 +100,7 @@ const CareerPage = () => {
           }}
         />
         <div
-          className="absolute inset-0 opacity-45"
+          className="pointer-events-none absolute inset-0 opacity-45"
           style={{
             background:
               "linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02), rgba(255,255,255,0.04))",
@@ -119,15 +122,17 @@ const CareerPage = () => {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <Link href="#roles">
-              <Button theme="white" className="px-6 py-2 text-sm font-semibold text-slate-900">
-                View open roles
-              </Button>
+            <Link
+              href="#roles"
+              className="group inline-flex items-center justify-center rounded-[12px] border border-white/30 bg-white px-6 py-2 text-sm font-semibold text-slate-900 shadow-[0_12px_30px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(0,0,0,0.28)]"
+            >
+              View open roles
             </Link>
-            <Link href="/contact">
-              <Button theme="primary" className="px-6 py-2 text-sm font-semibold">
-                Refer a teammate
-              </Button>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center justify-center rounded-[12px] bg-gradient-to-r from-primary via-[#6d36dc] to-[#4b50e6] px-6 py-2 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(76,49,201,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(76,49,201,0.45)]"
+            >
+              Refer a teammate
             </Link>
           </div>
         </div>

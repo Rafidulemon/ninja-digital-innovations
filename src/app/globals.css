@@ -47,10 +47,8 @@ body {
 
 /* Hero/header treatment: keep nav legible over the hero artwork on all system themes */
 .home-hero-header {
-  background: rgb(0, 0, 0);
+  background: transparent;
   color: #fff;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 .home-hero-header .text-slate-600,

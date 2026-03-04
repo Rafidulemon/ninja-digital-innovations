@@ -195,7 +195,7 @@ const BlogsPage = () => {
       {/* Hero */}
       <section
         id="blogs-hero"
-        className="relative isolate overflow-hidden bg-gradient-to-br from-[#0a0f2a] via-[#0f1f44] to-[#0f172a] text-white"
+        className="relative isolate overflow-hidden bg-gradient-to-br from-[#0c1a38] via-[#0b2c5c] to-[#0f172a] text-white"
       >
         <div className="pointer-events-none absolute inset-0 opacity-45">
           <div

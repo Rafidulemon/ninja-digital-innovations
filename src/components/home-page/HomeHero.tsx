@@ -32,7 +32,7 @@ const HeroSection = () => {
   return (
     <section
       id="home-hero"
-      className="relative isolate flex min-h-[calc(100vh-4rem)] flex-col justify-center overflow-hidden bg-gradient-to-b from-black via-[#0b2f72] to-[#051331] text-white md:min-h-[calc(100vh-5rem)]">
+      className="relative isolate -mt-16 flex min-h-[calc(100vh)] flex-col justify-center overflow-hidden bg-gradient-to-b from-black via-[#0b2f72] to-[#051331] text-white md:-mt-20 md:min-h-[calc(100vh)]">
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-40"
         style={{

@@ -32,6 +32,7 @@ const config: Config = {
         primary: "#5874A8",
         primaryLight: "#6f8fc4",
         primaryBlue: "#5874A8",
+        primaryBlueDark: "#1937d6",
         primaryTeal: "#5890a8",
       },
       keyframes: {
