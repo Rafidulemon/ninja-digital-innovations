@@ -99,9 +99,6 @@ const TeamPage = () => {
                 </div>
 
                 <div className="flex flex-col gap-2 px-5 py-4">
-                  <span className="inline-flex w-fit items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
-                    {member.department}
-                  </span>
                   <h3 className="text-lg font-semibold text-slate-900">{member.name}</h3>
                   <p className="text-sm font-medium text-slate-600">{member.designation}</p>
                 </div>

@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Gmail Triage Automation (Cloudflare Workers)",
+        "details": "Automates Gmail inbox triage on Cloudflare Workers: OAuth2 fetches unread mail, filters by CC/active users, optionally runs Gemini sentiment, persists results in D1 (users + mail_results), and sends deduplicated stakeholder alerts. Multi-worker deploy scripts (.dev.vars.*) cover dev/prod; mark-as-read and Gemini scoring are ready to re-enable next."
+    },
+    {
+        "name": "Knowledge Links AI",
+        "details": "RAG application that turns scattered knowledge into reliable answers: ingests docs, chunks and embeds to a vector store, performs hybrid retrieval with reranking, and assembles responses with grounded citations. Includes feedback + evaluation loop, role-based access, and observability for latency, cost, and quality."
+    },
+    {
+        "name": "MoeGuide",
+        "details": "This is a tourism and guide discovery web application designed to help users explore Tokyo-based guides and experiences. The platform provides a responsive and ensures seamless frontend–backend communication using a type-safe architecture."
+    },
+    {
+        "name": "Suirikyou",
+        "details": "Suirikyou is a responsive online quiz web application designed to provide users with an interactive and dynamic quiz-taking experience. The platform allows users to attempt quizzes, navigate between questions, and receive real-time feedback with smooth state management and efficient frontend–backend communication through a type-safe architecture."
+    }
+]

@@ -51,9 +51,6 @@ const OurTeam = () => {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" aria-hidden />
                 </div>
                 <div className="flex flex-col gap-1 px-4 py-3">
-                  <span className="inline-flex w-fit items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">
-                    {member.department}
-                  </span>
                   <h3 className="text-sm font-semibold text-slate-900">{member.name}</h3>
                   <p className="text-xs font-medium text-slate-600">{member.designation}</p>
                 </div>
@@ -73,7 +70,7 @@ const OurTeam = () => {
           }
         }
         .team-marquee {
-          animation: team-marquee 34s linear infinite;
+          animation: team-marquee 65s linear infinite;
         }
       `}</style>
     </section>

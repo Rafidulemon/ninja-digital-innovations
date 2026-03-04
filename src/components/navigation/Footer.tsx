@@ -114,7 +114,7 @@ const Footer = () => {
                 <p>Road No. 27 (Old), 16 (New)</p>
                 <p>Dhanmondi, Dhaka-1209, Bangladesh</p>
                 <Link
-                  href="https://www.google.com/maps?q=27+Shaptak+Square,+Dhanmondi,+Dhaka-1209,+Bangladesh"
+                  href="https://maps.app.goo.gl/vuML4DtrZp9mCHQR8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-white"

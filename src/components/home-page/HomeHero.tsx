@@ -73,14 +73,14 @@ const HeroSection = () => {
           <span className="inline-flex w-fit uppercase tracking-[0.2em] text-white text-[12px]">
             Ninja Digital Innovations
           </span>
-          <h1 className="relative inline-block whitespace-pre-line break-words font-semibold leading-[1.08] text-white drop-shadow-[0_14px_30px_rgba(9,0,16,0.45)] text-[30px] md:text-[60px] font-spaceGrotesk">
-            Pioneering the future with AI and human collaboration."
+          <h1 className="relative max-w-5xl inline-block whitespace-pre-line break-words font-semibold leading-[1.08] text-white drop-shadow-[0_14px_30px_rgba(9,0,16,0.45)] text-[30px] md:text-[60px] font-spaceGrotesk">
+            Pioneering the future with AI and human collaboration
           </h1>
           <div className="flex w-full flex-wrap items-center justify-center gap-3 md:gap-4 md:mb-2">
             {serviceHighlights.map(({ icon: Icon, label }) => (
               <div
                 key={label}
-                className="flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-sm shadow-[0_10px_40px_-18px_rgba(0,0,0,0.65)]"
+                className="flex items-center gap-1 rounded-xl border border-white/15 bg-white/8 px-2 py-2 text-sm font-medium text-white/90 backdrop-blur-sm shadow-[0_10px_40px_-18px_rgba(0,0,0,0.65)]"
               >
                 <Icon className="text-white" size={16} aria-hidden="true" />
                 <span className="whitespace-nowrap">{label}</span>

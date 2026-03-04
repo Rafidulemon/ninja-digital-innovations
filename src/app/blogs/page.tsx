@@ -195,7 +195,7 @@ const BlogsPage = () => {
       {/* Hero */}
       <section
         id="blogs-hero"
-        className="relative isolate overflow-hidden bg-gradient-to-br from-[#0c1a38] via-[#0b2c5c] to-[#0f172a] text-white"
+        className="relative isolate -mt-16 flex min-h-[calc(100vh+3rem)] flex-col justify-center overflow-hidden bg-gradient-to-br from-[#0c1a38] via-[#0b2c5c] to-[#0f172a] text-white md:-mt-20 md:min-h-[calc(100vh+4rem)]"
       >
         <div className="pointer-events-none absolute inset-0 opacity-45">
           <div
@@ -216,7 +216,7 @@ const BlogsPage = () => {
           />
         </div>
 
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 pb-16 pt-20 sm:px-6 md:pb-24 md:pt-24">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 pb-20 pt-24 sm:px-6 md:pb-24 md:pt-28">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[12px] uppercase tracking-[0.28em] text-white/80 backdrop-blur">
             <FiFeather size={14} aria-hidden />
             Blogs
