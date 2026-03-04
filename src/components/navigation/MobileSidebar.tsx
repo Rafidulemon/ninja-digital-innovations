@@ -3,11 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaTimes } from "react-icons/fa";
 import { usePathname } from "next/navigation";
-
-type NavItem = {
-  href: string;
-  label: string;
-};
+import type { NavItem } from "@/app/contants/navItems";
 
 type MobileSideBarProps = {
   isMenuOpen: boolean;
@@ -23,6 +19,8 @@ const MobileSideBar = ({
   contactLabel,
 }: MobileSideBarProps) => {
   const pathname = usePathname();
+
+  const basePath = (href: string) => href.split("#")[0];
 
   return (
     <div
@@ -61,25 +59,47 @@ const MobileSideBar = ({
           </button>
         </div>
 
-        <nav className="flex flex-col gap-6 px-6 py-6 text-[15px] font-medium text-slate-700">
+        <nav className="flex flex-col gap-5 px-6 py-6 text-[15px] font-medium text-slate-700">
           {navItems.map((navItem) => {
+            const parentPath = basePath(navItem.href);
             const isActive =
-              pathname === navItem.href ||
-              (navItem.href === "/services" &&
-                pathname.startsWith("/services/"));
+              pathname === parentPath || pathname.startsWith(`${parentPath}/`);
             return (
-              <Link
-                key={navItem.href}
-                href={navItem.href}
-                onClick={closeMenu}
-                className={`relative inline-flex items-center transition-colors ${
-                  isActive
-                    ? "text-primary after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:rounded-full after:bg-gradient-to-r after:from-primary after:via-[#6d36dc] after:to-[#4b50e6]"
-                    : "text-slate-700 hover:text-slate-900"
-                }`}
-              >
-                {navItem.label}
-              </Link>
+              <div key={navItem.href} className="flex flex-col gap-2">
+                <Link
+                  href={navItem.href}
+                  onClick={closeMenu}
+                  className={`relative inline-flex items-center transition-colors ${
+                    isActive
+                      ? "text-primary after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:rounded-full after:bg-gradient-to-r after:from-primary after:via-[#6d36dc] after:to-[#4b50e6]"
+                      : "text-slate-700 hover:text-slate-900"
+                  }`}
+                >
+                  {navItem.label}
+                </Link>
+                {navItem.children?.length ? (
+                  <div className="ml-3 flex flex-col gap-2 border-l border-slate-200 pl-3 text-[14px] font-normal text-slate-600">
+                    {navItem.children.map((child) => {
+                      const childPath = basePath(child.href);
+                      const isChildActive =
+                        childPath !== parentPath &&
+                        (pathname === childPath || pathname.startsWith(`${childPath}/`));
+                      return (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={closeMenu}
+                          className={`transition-colors ${
+                            isChildActive ? "text-primary" : "hover:text-slate-800"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                ) : null}
+              </div>
             );
           })}
         </nav>

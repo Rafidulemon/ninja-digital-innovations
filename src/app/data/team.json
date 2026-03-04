@@ -1,0 +1,142 @@
+[
+  {
+    "id": "001",
+    "name": "Md. Robiul Islam Sakib",
+    "department": "Engineering",
+    "designation": "Bangladesh Lead & Manager",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/SakibBangladesh-Lead-Manager.jpg"
+  },
+  {
+    "id": "002",
+    "name": "Ren Nakaoka",
+    "department": "HR",
+    "designation": "Bangladesh HR Head",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Ren-NakaokaBangladesh-HR-Head-scaled.jpg"
+  },
+  {
+    "id": "003",
+    "name": "Mohammad Arpon Hasan",
+    "department": "HR",
+    "designation": "HR & Management",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/03/12-IMG_3595-scaled.jpg"
+  },
+  {
+    "id": "004",
+    "name": "Sadia Afrin",
+    "department": "HR",
+    "designation": "Assistant HR & Management",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sadia-Afrin-Assistant-HR-Management-1.jpg"
+  },
+  {
+    "id": "005",
+    "name": "Tahmina Akter",
+    "department": "UI/UX",
+    "designation": "UI/UX Designer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Tahmina-Akter-UI_UX-Designer.jpg"
+  },
+  {
+    "id": "006",
+    "name": "Md. Masud",
+    "department": "UI/UX",
+    "designation": "UI/UX Designer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Masud-Rana.jpg"
+  },
+  {
+    "id": "007",
+    "name": "MD HAZRAT ALI",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Hazrat-Ali.jpg"
+  },
+  {
+    "id": "008",
+    "name": "Md. Zahidul Islam",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Zahidul-Islam.jpg"
+  },
+  {
+    "id": "009",
+    "name": "Sohel Rana Sajib",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/MD.-SOHEL-RANA.jpg"
+  },
+  {
+    "id": "010",
+    "name": "Mueem Nahid Ibn Mahbub",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Mueem_Nahid_Ibn_Mahbub-scaled.jpeg"
+  },
+  {
+    "id": "011",
+    "name": "Md. Salman Hossan Prottoy",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Salman-Hossan-Prottoy-scaled.jpg"
+  },
+  {
+    "id": "012",
+    "name": "Md. Omar Shahariar",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Omar-Shahariar-scaled.jpg"
+  },
+  {
+    "id": "013",
+    "name": "Saiful Islam Rifat",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Saiful-Islam-Rifat-scaled.jpg"
+  },
+  {
+    "id": "014",
+    "name": "Md. Rafidul Islam",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "/images/team/rafidul.png"
+  },
+  {
+    "id": "015",
+    "name": "Md. Sourov Mia",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Sourov-Mia.jpg"
+  },
+  {
+    "id": "016",
+    "name": "Mustahid Hasan",
+    "department": "Frontend",
+    "designation": "Frontend Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Mustahid_Hasan-Backend-engineer.jpg"
+  },
+  {
+    "id": "017",
+    "name": "Sufi Aurangzeb Hossain",
+    "department": "Flutter",
+    "designation": "Flutter Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sufi-Aurangzeb-Hossain-1-scaled.jpg"
+  },
+  {
+    "id": "018",
+    "name": "Sunny Sutradhar",
+    "department": "Flutter",
+    "designation": "Flutter Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sunny-Sutradhar.jpg"
+  },
+  {
+    "id": "019",
+    "name": "Sazzad Hosan Shasue Molla",
+    "department": "Flutter",
+    "designation": "Flutter Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sazzad-Hosan-Shasue-Molla.jpg"
+  },
+  {
+    "id": "020",
+    "name": "MD. Mokter Hossain",
+    "department": "Research",
+    "designation": "Research Assistant",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/MD.-Mokter-Hossain.jpg"
+  }
+]

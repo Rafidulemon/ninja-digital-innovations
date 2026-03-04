@@ -161,7 +161,7 @@ const ServicesPage = () => {
                 Start a project
               </Button>
             </Link>
-            <Link href="/about">
+            <Link href="/company/team">
               <Button theme="white" className="px-6 py-2 text-sm font-semibold text-slate-900">
                 Meet the team
               </Button>

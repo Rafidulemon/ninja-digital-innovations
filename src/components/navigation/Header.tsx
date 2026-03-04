@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { FiChevronDown } from "react-icons/fi";
 import MobileSideBar from "./MobileSidebar";
 import type { NavItem } from "@/app/contants/navItems";
 import { getNavItems } from "@/app/contants/navItems";
@@ -20,7 +21,7 @@ const Header = ({ isDark = false }: HeaderProps) => {
   const isServiceRoute =
     pathname === "/services" || pathname.startsWith("/services/");
   const isContactRoute = pathname === "/contact";
-  const isAboutRoute = pathname === "/about" || pathname.startsWith("/about/");
+  const isCompanyRoute = pathname === "/company" || pathname.startsWith("/company");
   const isProductsRoute = pathname === "/products";
   const isProductDetailRoute =
     pathname.startsWith("/products/") && pathname !== "/products";
@@ -31,7 +32,7 @@ const Header = ({ isDark = false }: HeaderProps) => {
     pathname === "/" ||
       isServiceRoute ||
       isContactRoute ||
-      isAboutRoute ||
+      isCompanyRoute ||
       isProductsRoute ||
       isProductDetailRoute ||
       isAiRoute ||
@@ -62,8 +63,8 @@ const Header = ({ isDark = false }: HeaderProps) => {
           ? "service-hero"
           : isContactRoute
             ? "contact-hero"
-            : isAboutRoute
-              ? "about-hero"
+            : isCompanyRoute
+              ? "company-hero"
               : isProductsRoute || isProductDetailRoute
                 ? "product-hero"
               : isAiRoute
@@ -94,7 +95,7 @@ const Header = ({ isDark = false }: HeaderProps) => {
     observer.observe(heroSection);
     return () => observer.disconnect();
   }, [
-    isAboutRoute,
+    isCompanyRoute,
     isContactRoute,
     isDark,
     isProductsRoute,
@@ -107,6 +108,7 @@ const Header = ({ isDark = false }: HeaderProps) => {
   ]);
 
   const navItems: NavItem[] = getNavItems();
+  const basePath = (href: string) => href.split("#")[0];
 
   const heroLogoSrc = "/images/ndi.logo.png";
 
@@ -176,17 +178,74 @@ const Header = ({ isDark = false }: HeaderProps) => {
               isDarkHeader ? "text-white/80" : "text-slate-600"
             }`}
           >
-            {navItems.map((navItem: any) => {
-              const isActive =
-                pathname === navItem.href ||
-                (navItem.href === "/services" &&
-                  pathname.startsWith("/services/"));
+            {navItems.map((navItem) => {
+              const parentPath = basePath(navItem.href);
+              const isParentActive =
+                pathname === parentPath ||
+                pathname.startsWith(`${parentPath}/`) ||
+                navItem.children?.some((child) => {
+                  const childPath = basePath(child.href);
+                  return (
+                    pathname === childPath || pathname.startsWith(`${childPath}/`)
+                  );
+                });
+
+              if (navItem.children?.length) {
+                return (
+                  <div key={navItem.href} className="group relative">
+                    <Link
+                      href={navItem.href}
+                      className={`relative inline-flex items-center gap-1 transition-colors ${
+                        isParentActive ? navActiveClass : navInactiveClass
+                      }`}
+                    >
+                      {navItem.label}
+                      <FiChevronDown
+                        size={16}
+                        className={`transition-transform duration-200 ${
+                          isParentActive ? "translate-y-[1px]" : ""
+                        } group-hover:-translate-y-[1px]`}
+                        aria-hidden="true"
+                      />
+                    </Link>
+                    <div className="pointer-events-none absolute left-1/2 top-[115%] z-[999] -translate-x-1/2 opacity-0 transition duration-200 ease-out group-hover:pointer-events-auto group-hover:opacity-100">
+                      <div
+                        className={`w-56 overflow-hidden rounded-2xl border bg-white/95 shadow-[0_18px_60px_rgba(15,23,42,0.18)] backdrop-blur ${
+                          isDarkHeader ? "border-white/15" : "border-slate-200"
+                        }`}
+                      >
+                        {navItem.children.map((child) => {
+                          const childPath = basePath(child.href);
+                          const isChildActive =
+                            childPath !== parentPath &&
+                            (pathname === childPath || pathname.startsWith(`${childPath}/`));
+                          return (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className={`flex items-center justify-between px-4 py-3 text-sm transition-colors ${
+                                isChildActive
+                                  ? "bg-primary/10 text-primary"
+                                  : "text-slate-700 hover:bg-slate-100"
+                              }`}
+                            >
+                              <span>{child.label}</span>
+                              <span className="text-xs text-slate-400">↗</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={navItem.href}
                   href={navItem.href}
                   className={`relative inline-flex items-center transition-colors ${
-                    isActive ? navActiveClass : navInactiveClass
+                    isParentActive ? navActiveClass : navInactiveClass
                   }`}
                 >
                   {navItem.label}
