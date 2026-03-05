@@ -48,11 +48,12 @@ const Footer = () => {
               <Image
                 src="/images/ndi.logo.png"
                 alt="Ninja Digital Innovations logo"
-                width={150}
-                height={48}
-                className="h-auto w-[150px]"
-                sizes="150px"
+                width={46}
+                height={46}
+                className="h-auto w-[46px]"
+                sizes="46px"
               />
+              <span className="text-base font-semibold tracking-tight text-white">Ninja Digital Innovation</span>
             </Link>
             <p className="mt-4 max-w-xl text-base text-white/70">
               We partner with ambitious teams to ship resilient products, intuitive interfaces, and AI-powered workflows
@@ -81,7 +82,7 @@ const Footer = () => {
           <div className="grid gap-8 text-sm font-medium md:col-span-7 md:grid-cols-3">
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.18em] text-white/50">Navigation</p>
-              <div className="flex flex-col gap-3 text-white/80">
+              <div className="grid grid-cols-2 gap-x-3 gap-y-3 text-white/80">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
@@ -91,17 +92,20 @@ const Footer = () => {
                     {item.label}
                   </Link>
                 ))}
+                <Link href="/news" className="transition hover:text-white">
+                  News
+                </Link>
               </div>
             </div>
 
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.18em] text-white/50">Contact</p>
               <div className="flex flex-col gap-3 text-white/80">
-                <Link href="mailto:hello@ninjadigital.com" className="hover:text-white">
-                  hello@ninjadigital.com
+                <Link href="mailto:arpon.hasan@ninja-digital-innovations.com" className="hover:text-white">
+                  arpon.hasan@ninja-digital-innovations.com
                 </Link>
-                <Link href="tel:+15550124477" className="hover:text-white">
-                  +1 (555) 012-4477
+                <Link href="tel:+8801303241326" className="hover:text-white">
+                  (+88) 01303241326
                 </Link>
                 <p className="text-white/60">Mon–Fri · 9:00–18:00 (GMT+6)</p>
               </div>
@@ -134,7 +138,7 @@ const Footer = () => {
             <span className="text-white/30">·</span>
             <Link href="/terms" className="hover:text-white">Terms</Link>
             <span className="text-white/30">·</span>
-            <Link href="/contact" className="hover:text-white">Support</Link>
+            <Link href="/support" className="hover:text-white">Support</Link>
           </div>
         </div>
       </div>

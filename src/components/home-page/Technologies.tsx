@@ -22,15 +22,20 @@ const technologyGroups: TechnologyGroup[] = [
     accent: ["#38bdf8", "#6366f1"],
     items: [
       { name: "JavaScript", logo: "/images/technologies/javascript.png" },
+      { name: "TypeScript", logo: "/images/technologies/typescript.webp" },
       { name: "React", logo: "/images/technologies/react.png" },
       { name: "Next.js", logo: "/images/technologies/next.png" },
+      { name: "Vite", logo: "/images/technologies/vite.webp" },
       { name: "Vue", logo: "/images/technologies/vue.png" },
       { name: "Angular", logo: "/images/technologies/angular.png" },
       { name: "HTML5", logo: "/images/technologies/html.png" },
       { name: "CSS3", logo: "/images/technologies/css.png" },
       { name: "Tailwind", logo: "/images/technologies/tailwind.png" },
+      { name: "Redux", logo: "/images/technologies/redux.png" },
       { name: "React Native", logo: "/images/technologies/rn.png" },
       { name: "Flutter", logo: "/images/technologies/flutter.png" },
+      { name: "Dart", logo: "/images/technologies/dart.png" },
+      { name: "Android", logo: "/images/technologies/android.png" },
     ],
   },
   {
@@ -67,6 +72,7 @@ const technologyGroups: TechnologyGroup[] = [
     items: [
       { name: "WordPress", logo: "/images/technologies/wp.png" },
       { name: "Joomla", logo: "/images/technologies/joomla.png" },
+      { name: "microCMS", logo: "/images/technologies/micro.png" },
     ],
   },
   {
@@ -75,6 +81,7 @@ const technologyGroups: TechnologyGroup[] = [
     accent: ["#0ea5e9", "#22d3ee"],
     items: [
       { name: "AWS", logo: "/images/technologies/aws.png" },
+      { name: "Cloudflare", logo: "/images/technologies/cloudflare.png" },
       { name: "Firebase", logo: "/images/technologies/firebase.png" },
       { name: "Vercel", logo: "/images/technologies/vercel.png" },
       { name: "Cypress", logo: "/images/technologies/cy.png" },
@@ -99,8 +106,11 @@ const technologyGroups: TechnologyGroup[] = [
     accent: ["#14b8a6", "#06b6d4"],
     items: [
       { name: "OpenAI", logo: "/images/technologies/openAI.png" },
+      { name: "Anthropic", logo: "/images/technologies/anthropic.webp" },
+      { name: "Gemini", logo: "/images/technologies/gemini.png" },
       { name: "LangChain", logo: "/images/technologies/langChain.png" },
       { name: "Vector DB", logo: "/images/technologies/vector_db.svg" },
+      { name: "Qdrant", logo: "/images/technologies/qdrant.png" },
       { name: "Analytics", logo: "/images/technologies/google_analytics.png" },
     ],
   },
@@ -165,9 +175,10 @@ const Technologies = () => {
           </p>
         </div>
 
+        {/* Desktop tabs */}
         <div
           ref={navRef}
-          className="relative mt-8 overflow-hidden rounded-full border border-slate-100 bg-white/90 p-2 shadow-[0_24px_70px_-52px_rgba(15,23,42,0.35)] backdrop-blur"
+          className="relative mt-8 hidden overflow-hidden p-2 backdrop-blur md:block"
         >
           <div className="flex flex-wrap items-center gap-2">
             {technologyGroups.map((group) => {
@@ -177,7 +188,7 @@ const Technologies = () => {
                   key={group.key}
                   data-key={group.key}
                   onClick={() => setActiveKey(group.key)}
-                  className={`relative rounded-full px-4 py-2 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+                  className={`relative cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
                     isActive ? "text-slate-900" : "text-slate-500 hover:text-slate-800"
                   }`}
                   aria-pressed={isActive}
@@ -199,11 +210,87 @@ const Technologies = () => {
           />
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {/* Mobile carousel */}
+        <div className="mt-8 md:hidden">
+          <div className="-mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3">
+            {technologyGroups.map((group) => {
+              const isActive = group.key === activeKey;
+              return (
+                <button
+                  key={group.key}
+                  onClick={() => setActiveKey(group.key)}
+                  className="group relative min-w-[200px] flex-1 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-[0_14px_40px_-22px_rgba(15,23,42,0.35)] transition-transform duration-200 hover:-translate-y-0.5 active:scale-[0.99]"
+                  aria-pressed={isActive}
+                >
+                  <div
+                    className="absolute inset-0 opacity-80"
+                    style={{
+                      background: `linear-gradient(120deg, ${group.accent[0]}22, ${group.accent[1]}15)`,
+                    }}
+                    aria-hidden
+                  />
+                  <div className="relative flex items-center justify-between px-4 py-3">
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[11px] uppercase tracking-[0.26em] text-slate-500">Stack</span>
+                      <span className="text-base font-semibold text-slate-900">{group.label}</span>
+                    </div>
+                    <span
+                      className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold ${
+                        isActive
+                          ? "bg-white text-primary shadow-[0_10px_30px_rgba(15,23,42,0.16)]"
+                          : "bg-slate-900 text-white/80"
+                      }`}
+                      style={{
+                        background: isActive
+                          ? `linear-gradient(135deg, ${group.accent[0]}, ${group.accent[1]})`
+                          : undefined,
+                      }}
+                    >
+                      {group.items.length}
+                    </span>
+                  </div>
+                  <div className="relative flex items-center gap-2 px-4 pb-3">
+                    {group.items.slice(0, 4).map((tech) => (
+                      <div
+                        key={tech.name}
+                        className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/80 ring-1 ring-slate-200 shadow-inner"
+                      >
+                        <Image
+                          src={tech.logo}
+                          alt={tech.name}
+                          width={40}
+                          height={40}
+                          className="h-8 w-8 object-contain"
+                        />
+                      </div>
+                    ))}
+                    {group.items.length > 4 ? (
+                      <span className="rounded-full bg-slate-900/80 px-3 py-1 text-[11px] font-semibold text-white">
+                        +{group.items.length - 4} more
+                      </span>
+                    ) : null}
+                  </div>
+                  {isActive ? (
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-[3px]"
+                      style={{
+                        background: `linear-gradient(90deg, ${group.accent[0]}, ${group.accent[1]})`,
+                      }}
+                      aria-hidden
+                    />
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop grid */}
+        <div className="mt-10 hidden gap-5 sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {activeGroup.items.map((tech, idx) => (
             <article
               key={tech.name}
-              className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white/90 p-4 shadow-[0_22px_68px_-50px_rgba(15,23,42,0.32)] transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_28px_90px_-58px_rgba(15,23,42,0.34)]"
+              className="group relative overflow-hidden p-4 transition duration-300 hover:-translate-y-1 hover:border-primary/30"
             >
               <div
                 className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100"
@@ -232,6 +319,34 @@ const Technologies = () => {
                 <p className="text-sm font-semibold text-slate-800">{tech.name}</p>
               </div>
             </article>
+          ))}
+        </div>
+
+        {/* Mobile grid */}
+        <div className="mt-8 grid grid-cols-2 gap-3 md:hidden">
+          {activeGroup.items.map((tech) => (
+            <div
+              key={tech.name}
+              className="relative flex items-center gap-3 overflow-hidden rounded-2xl border border-slate-100 bg-white px-3 py-3 shadow-[0_14px_32px_-24px_rgba(15,23,42,0.32)]"
+            >
+              <span
+                className="absolute left-0 top-0 h-full w-1"
+                style={{
+                  background: `linear-gradient(180deg, ${activeGroup.accent[0]}, ${activeGroup.accent[1]})`,
+                }}
+                aria-hidden
+              />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 ring-1 ring-slate-200">
+                <Image
+                  src={tech.logo}
+                  alt={tech.name}
+                  width={48}
+                  height={48}
+                  className="h-9 w-9 object-contain"
+                />
+              </div>
+              <p className="text-sm font-semibold text-slate-800">{tech.name}</p>
+            </div>
           ))}
         </div>
       </div>

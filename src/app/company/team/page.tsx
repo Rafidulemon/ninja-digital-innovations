@@ -22,7 +22,39 @@ const teamValues = [
   },
 ];
 
+type TeamMember = (typeof teamMembers)[number];
+
+const orderedDepartments = [
+  "Management and HR Team",
+  "Frontend",
+  "Backend",
+  "UI/UX",
+  "Research",
+  "SNS",
+];
+
+const groupMembersByDepartment = (members: TeamMember[]) => {
+  const priorityIds = new Set(members.slice(0, 4).map((member) => member.id));
+  const groups = orderedDepartments
+    .map((department) => ({
+      department,
+      members: members.filter((member) => member.department === department),
+    }))
+    .filter((group) => group.members.length);
+
+  const otherMembers = members.filter(
+    (member) => member.department && !orderedDepartments.includes(member.department),
+  );
+  if (otherMembers.length) {
+    groups.push({ department: "Other", members: otherMembers });
+  }
+
+  return { groups, priorityIds };
+};
+
 const TeamPage = () => {
+  const { groups, priorityIds } = groupMembersByDepartment(teamMembers);
+
   return (
     <div className="bg-white text-slate-900">
       <section className="mx-auto max-w-6xl px-5 pb-16 pt-24 sm:px-6 md:px-10 md:pb-20 md:pt-28">
@@ -80,29 +112,42 @@ const TeamPage = () => {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-            {teamMembers.map((member, index) => (
-              <article
-                key={member.id}
-                className="group relative overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_28px_72px_-48px_rgba(15,23,42,0.28)] transition duration-300 hover:-translate-y-1"
-              >
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={member.image_src}
-                    alt={member.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 25vw"
-                    className="object-cover object-top transition duration-500 group-hover:scale-[1.04]"
-                    priority={index < 4}
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" aria-hidden />
+          <div className="mt-10 space-y-10">
+            {groups.map(({ department, members }) => (
+              <div key={department} className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold text-slate-900">{department}</h3>
+                  <span className="rounded-full bg-slate-900/5 px-3 py-1 text-xs font-semibold text-slate-600">
+                    {members.length} {members.length === 1 ? "member" : "members"}
+                  </span>
                 </div>
 
-                <div className="flex flex-col gap-2 px-5 py-4">
-                  <h3 className="text-lg font-semibold text-slate-900">{member.name}</h3>
-                  <p className="text-sm font-medium text-slate-600">{member.designation}</p>
+                <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+                  {members.map((member, index) => (
+                    <article
+                      key={member.id}
+                      className="group relative overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_28px_72px_-48px_rgba(15,23,42,0.28)] transition duration-300 hover:-translate-y-1"
+                    >
+                      <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
+                        <Image
+                          src={member.image_src}
+                          alt={member.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 25vw"
+                          className="object-cover object-top transition duration-500 group-hover:scale-[1.04]"
+                          priority={priorityIds.has(member.id)}
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" aria-hidden />
+                      </div>
+
+                      <div className="flex flex-col gap-2 px-5 py-4">
+                        <h4 className="text-lg font-semibold text-slate-900">{member.name}</h4>
+                        <p className="text-sm font-medium text-slate-600">{member.designation}</p>
+                      </div>
+                    </article>
+                  ))}
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>

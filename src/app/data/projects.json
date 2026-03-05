@@ -1,18 +1,80 @@
 [
     {
-        "name": "Gmail Triage Automation (Cloudflare Workers)",
-        "details": "Automates Gmail inbox triage on Cloudflare Workers: OAuth2 fetches unread mail, filters by CC/active users, optionally runs Gemini sentiment, persists results in D1 (users + mail_results), and sends deduplicated stakeholder alerts. Multi-worker deploy scripts (.dev.vars.*) cover dev/prod; mark-as-read and Gemini scoring are ready to re-enable next."
-    },
-    {
         "name": "Knowledge Links AI",
-        "details": "RAG application that turns scattered knowledge into reliable answers: ingests docs, chunks and embeds to a vector store, performs hybrid retrieval with reranking, and assembles responses with grounded citations. Includes feedback + evaluation loop, role-based access, and observability for latency, cost, and quality."
+        "slug": "knowledge-links-ai",
+        "details": "RAG application that turns scattered knowledge into reliable answers: ingests docs, chunks and embeds to a vector store, performs hybrid retrieval with reranking, and assembles responses with grounded citations. Includes feedback + evaluation loop, role-based access, and observability for latency, cost, and quality.",
+        "image_src": "/images/projects/rag.png",
+        "live_url": "https://demo.knowledgelinks.ai/",
+        "technologies": [
+            { "name": "React", "logo": "/images/technologies/react.png" },
+            { "name": "Next.js", "logo": "/images/technologies/next.png" },
+            { "name": "Tailwind", "logo": "/images/technologies/tailwind.png" },
+            { "name": "TypeScript", "logo": "/images/technologies/typescript.webp" },
+            { "name": "tRPC", "logo": "/images/technologies/trpc.png" },
+            { "name": "OpenAI", "logo": "/images/technologies/openAI.png" },
+            { "name": "Anthropic", "logo": "/images/technologies/anthropic.webp" },
+            { "name": "Qdrant", "logo": "/images/technologies/qdrant.png" },
+            { "name": "AWS RDS", "logo": "/images/technologies/aws.png" },
+            { "name": "S3", "logo": "/images/technologies/aws.png" },
+            { "name": "SES", "logo": "/images/technologies/aws.png" },
+            { "name": "EC2", "logo": "/images/technologies/aws.png" },
+            { "name": "Node.js", "logo": "/images/technologies/node.png" },
+            { "name": "Express", "logo": "" },
+            { "name": "PostgreSQL", "logo": "/images/technologies/pg.png" },
+            { "name": "Prisma", "logo": "/images/technologies/prisma.png" },
+            { "name": "Redux", "logo": "/images/technologies/redux.png" }
+        ]
     },
     {
         "name": "MoeGuide",
-        "details": "This is a tourism and guide discovery web application designed to help users explore Tokyo-based guides and experiences. The platform provides a responsive and ensures seamless frontend–backend communication using a type-safe architecture."
+        "slug": "moeguide",
+        "details": "This is a tourism and guide discovery web application designed to help users explore Tokyo-based guides and experiences. The platform provides a responsive and ensures seamless frontend–backend communication using a type-safe architecture.",
+        "image_src": "/images/projects/moeguide.png",
+        "live_url": "https://moeguide.jp/",
+        "technologies": [
+            { "name": "React", "logo": "/images/technologies/react.png" },
+            { "name": "Next.js", "logo": "/images/technologies/next.png" },
+            { "name": "Tailwind", "logo": "/images/technologies/tailwind.png" },
+            { "name": "TypeScript", "logo": "/images/technologies/typescript.webp" },
+            { "name": "tRPC", "logo": "/images/technologies/trpc.png" },
+            { "name": "AWS RDS", "logo": "/images/technologies/aws.png" },
+            { "name": "S3", "logo": "/images/technologies/aws.png" },
+            { "name": "SES", "logo": "/images/technologies/aws.png" },
+            { "name": "EC2", "logo": "/images/technologies/aws.png" },
+            { "name": "Node.js", "logo": "/images/technologies/node.png" },
+            { "name": "Express", "logo": "" },
+            { "name": "PostgreSQL", "logo": "/images/technologies/pg.png" },
+            { "name": "Prisma", "logo": "/images/technologies/prisma.png" }
+        ]
     },
     {
         "name": "Suirikyou",
-        "details": "Suirikyou is a responsive online quiz web application designed to provide users with an interactive and dynamic quiz-taking experience. The platform allows users to attempt quizzes, navigate between questions, and receive real-time feedback with smooth state management and efficient frontend–backend communication through a type-safe architecture."
+        "slug": "suirikyou",
+        "details": "Suirikyou is a responsive online quiz web application designed to provide users with an interactive and dynamic quiz-taking experience. The platform allows users to attempt quizzes, navigate between questions, and receive real-time feedback with smooth state management and efficient frontend–backend communication through a type-safe architecture.",
+        "image_src": "/images/projects/suirikyou.png",
+        "live_url": "https://suirikyou.vercel.app/",
+        "technologies": [
+            { "name": "React", "logo": "/images/technologies/react.png" },
+            { "name": "Next.js", "logo": "/images/technologies/next.png" },
+            { "name": "Tailwind", "logo": "/images/technologies/tailwind.png" },
+            { "name": "TypeScript", "logo": "/images/technologies/typescript.webp" },
+            { "name": "tRPC", "logo": "/images/technologies/trpc.png" },
+            { "name": "microCMS", "logo": "/images/technologies/micro.png" }
+        ]
+    },
+    {
+        "name": "Gmail Triage Automation (Cloudflare Workers)",
+        "slug": "gmail-triage-automation",
+        "details": "Automates Gmail inbox triage on Cloudflare Workers: OAuth2 fetches unread mail, filters by CC/active users, optionally runs Gemini sentiment, persists results in D1 (users + mail_results), and sends deduplicated stakeholder alerts. Multi-worker deploy scripts (.dev.vars.*) cover dev/prod; mark-as-read and Gemini scoring are ready to re-enable next.",
+        "image_src": "/images/projects/gmail_trigger.png",
+        "live_url": "https://ui.rafid-ndi.workers.dev/",
+        "technologies": [
+            { "name": "React", "logo": "/images/technologies/react.png" },
+            { "name": "Vite", "logo": "/images/technologies/vite.webp" },
+            { "name": "Tailwind", "logo": "/images/technologies/tailwind.png" },
+            { "name": "TypeScript", "logo": "/images/technologies/typescript.webp" },
+            { "name": "Cloudflare", "logo": "/images/technologies/cloudflare.png" },
+            { "name": "Gemini", "logo": "/images/technologies/gemini.png" }
+        ]
     }
 ]

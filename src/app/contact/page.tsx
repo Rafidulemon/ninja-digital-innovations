@@ -56,15 +56,6 @@ const ContactPage = () => {
               Share where you want to go—engineering, AI, security, or growth. We’ll assemble the right squad and reply within one business day.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <Button theme="white" className="px-6 py-2 text-sm font-semibold text-slate-900">
-              Our response time: &lt; 24h
-            </Button>
-            <div className="flex items-center gap-2 text-sm text-white/80">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              New projects open for Q2
-            </div>
-          </div>
         </div>
       </section>
 
@@ -81,9 +72,6 @@ const ContactPage = () => {
                   Tell us about your project
                 </h2>
               </div>
-              <span className="hidden rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary md:inline-flex">
-                Reply in &lt; 24h
-              </span>
             </div>
 
             <form className="mt-6 space-y-4">
@@ -168,8 +156,8 @@ const ContactPage = () => {
                   </span>
                   <div className="flex flex-col">
                     <span className="text-sm font-semibold">Email</span>
-                    <a href="mailto:hello@ninjadigital.io" className="text-sm text-primary hover:underline">
-                      hello@ninjadigital.io
+                    <a href="mailto:arpon.hasan@ninja-digital-innovations.com" className="text-sm text-primary hover:underline">
+                      arpon.hasan@ninja-digital-innovations.com
                     </a>
                   </div>
                 </div>
@@ -179,8 +167,8 @@ const ContactPage = () => {
                   </span>
                   <div className="flex flex-col">
                     <span className="text-sm font-semibold">Phone</span>
-                    <a href="tel:+81300000000" className="text-sm text-primary hover:underline">
-                      +81 (0)3 0000 0000
+                    <a href="tel:+15550124477" className="text-sm text-primary hover:underline">
+                      +8801303241326
                     </a>
                   </div>
                 </div>
@@ -189,8 +177,22 @@ const ContactPage = () => {
                     <FiMapPin size={18} aria-hidden />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-sm font-semibold">HQ</span>
-                    <p className="text-sm text-slate-600">Tokyo • Remote-first, global collaborators</p>
+                    <span className="text-sm font-semibold">Visit</span>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      27 Shaptak Square, Plot No. 380 (Old), 2 (New)
+                      <br />
+                      Road No. 27 (Old), 16 (New)
+                      <br />
+                      Dhanmondi, Dhaka-1209, Bangladesh
+                    </p>
+                    <a
+                      href="https://maps.app.goo.gl/vuML4DtrZp9mCHQR8"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 text-xs font-semibold text-primary hover:underline"
+                    >
+                      Open in Google Maps
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-slate-800">
@@ -202,6 +204,37 @@ const ContactPage = () => {
                     <p className="text-sm text-slate-600">Mon–Fri / 9:00–19:00 JST</p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_20px_60px_-45px_rgba(15,23,42,0.28)]">
+              <div className="flex items-center justify-between gap-3 px-6 pt-6">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <FiMapPin size={18} aria-hidden />
+                  </span>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.32em] text-slate-500">Map preview</p>
+                    <p className="text-sm font-semibold text-slate-900">Dhanmondi, Dhaka office</p>
+                  </div>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/vuML4DtrZp9mCHQR8"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-semibold text-primary hover:underline"
+                >
+                  View full map
+                </a>
+              </div>
+              <div className="mt-4 h-64 w-full overflow-hidden border-t border-slate-100 bg-slate-50/60">
+                <iframe
+                  title="Ninja Digital Innovations Dhanmondi map"
+                  src="https://maps.google.com/maps?q=27%20Shaptak%20Square%2C%20Plot%20No.%20380%20(Old)%2C%202%20(New)%2C%20Road%20No.%2027%20(Old)%2C%2016%20(New)%2C%20Dhanmondi%2C%20Dhaka-1209%2C%20Bangladesh&output=embed"
+                  loading="lazy"
+                  className="h-full w-full"
+                  allowFullScreen
+                />
               </div>
             </div>
 
@@ -222,23 +255,6 @@ const ContactPage = () => {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="overflow-hidden rounded-3xl border border-slate-100 bg-gradient-to-r from-primary/10 via-white to-emerald-50 p-6 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.28)]">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div className="max-w-xl">
-                  <p className="text-[11px] uppercase tracking-[0.32em] text-slate-500">Not ready to chat?</p>
-                  <h3 className="font-spaceGrotesk text-xl font-semibold text-slate-900">
-                    Download our capability overview.
-                  </h3>
-                  <p className="text-sm text-slate-600">
-                    Engineering, AI, security, and social strategy—all in one deck you can share internally.
-                  </p>
-                </div>
-                <Button theme="primary" className="px-5 py-2 text-sm font-semibold">
-                  Get the deck
-                </Button>
-              </div>
             </div>
           </div>
         </div>

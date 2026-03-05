@@ -26,8 +26,10 @@ const Header = ({ isDark = false }: HeaderProps) => {
   const isProductDetailRoute =
     pathname.startsWith("/products/") && pathname !== "/products";
   const isAiRoute = pathname === "/ai";
+  const isNewsRoute = pathname === "/news";
   const isBlogsRoute = pathname === "/blogs";
   const isCareerRoute = pathname === "/career";
+  const isProjectsRoute = pathname === "/projects" || pathname.startsWith("/projects/");
   const [isHeroActive, setIsHeroActive] = useState(
     pathname === "/" ||
       isServiceRoute ||
@@ -36,8 +38,10 @@ const Header = ({ isDark = false }: HeaderProps) => {
       isProductsRoute ||
       isProductDetailRoute ||
       isAiRoute ||
+      isNewsRoute ||
       isBlogsRoute ||
-      isCareerRoute
+      isCareerRoute ||
+      isProjectsRoute
   );
   const isDarkHeader = isDark || isHeroActive;
 
@@ -67,13 +71,17 @@ const Header = ({ isDark = false }: HeaderProps) => {
               ? "company-hero"
               : isProductsRoute || isProductDetailRoute
                 ? "product-hero"
-              : isAiRoute
-                ? "ai-hero"
-                : isBlogsRoute
-                  ? "blogs-hero"
-                  : isCareerRoute
-                    ? "career-hero"
-                    : null;
+                : isAiRoute
+                  ? "ai-hero"
+                  : isNewsRoute
+                    ? "news-hero"
+                    : isBlogsRoute
+                      ? "blogs-hero"
+                      : isCareerRoute
+                        ? "career-hero"
+                        : isProjectsRoute
+                          ? pathname.startsWith("/projects/") ? "project-detail-hero" : "projects-hero"
+                          : null;
     if (!heroId) {
       setIsHeroActive(false);
       return;
@@ -104,13 +112,14 @@ const Header = ({ isDark = false }: HeaderProps) => {
     isAiRoute,
     isBlogsRoute,
     isCareerRoute,
+    isProjectsRoute,
     pathname,
   ]);
 
   const navItems: NavItem[] = getNavItems();
   const basePath = (href: string) => href.split("#")[0];
 
-  const heroLogoSrc = "/images/ndi.logo.png";
+  const heroLogoSrc = isDarkHeader ? "/images/logo_white.png" : "/images/ndi.logo.png";
 
   const headerPositionClass = isDark ? "relative" : "fixed top-0";
   const headerThemeClass = isDark
@@ -133,7 +142,11 @@ const Header = ({ isDark = false }: HeaderProps) => {
         <div className="relative mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between px-4 md:h-20 md:px-8">
           <div className="flex items-center gap-3">
             <button
-              className={`md:hidden ${isDarkHeader ? "text-white" : "text-primary"}`}
+              className={`md:hidden inline-flex h-11 w-11 items-center justify-center text-base transition-all duration-200 ${
+                isDarkHeader
+                  ? "text-white shadow-[0_12px_32px_rgba(0,0,0,0.25)] backdrop-blur"
+                  : "text-primary shadow-[0_14px_32px_rgba(15,23,42,0.14)]"
+              } ${isMenuOpen ? "scale-95" : ""}`}
               onClick={toggleMenu}
               aria-label="Toggle Menu"
               aria-expanded={isMenuOpen}
@@ -152,7 +165,7 @@ const Header = ({ isDark = false }: HeaderProps) => {
               />
               <span
                 className={`text-base font-semibold tracking-tight ${
-                  isDarkHeader ? "text-white" : "text-slate-900"
+                  isDarkHeader ? "text-white" : "text-primary"
                 }`}
               >
                 Ninja Digital Innovations
@@ -161,7 +174,7 @@ const Header = ({ isDark = false }: HeaderProps) => {
           </div>
           <Link
             href="/"
-            className="absolute left-1/2 flex -translate-x-1/2 items-center md:hidden"
+            className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 md:hidden"
           >
               <Image
                 src={heroLogoSrc}
@@ -172,6 +185,13 @@ const Header = ({ isDark = false }: HeaderProps) => {
                 sizes="38px"
                 priority
               />
+              <span
+                className={`whitespace-nowrap text-[13px] font-semibold ${
+                  isDarkHeader ? "text-white" : "text-primary"
+                }`}
+              >
+                Ninja Digital Innovations
+              </span>
             </Link>
           <nav
             className={`hidden flex-1 items-center justify-center gap-6 text-[15px] font-medium md:flex md:gap-6 ${

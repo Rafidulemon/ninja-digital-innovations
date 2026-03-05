@@ -2,121 +2,162 @@
   {
     "id": "001",
     "name": "Md. Robiul Islam Sakib",
+    "department": "Management and HR Team",
     "designation": "Bangladesh Lead & Manager",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/SakibBangladesh-Lead-Manager.jpg"
   },
   {
     "id": "002",
     "name": "Ren Nakaoka",
+    "department": "Management and HR Team",
     "designation": "Bangladesh HR Head",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Ren-NakaokaBangladesh-HR-Head-scaled.jpg"
   },
   {
     "id": "003",
     "name": "Mohammad Arpon Hasan",
+    "department": "Management and HR Team",
     "designation": "HR & Management",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/03/12-IMG_3595-scaled.jpg"
   },
   {
     "id": "004",
+    "name": "Md. Yeasir Arafat",
+    "department": "Management and HR Team",
+    "designation": "HR & Management",
+    "image_src": "/images/team/yeasir.jpeg"
+  },
+  {
+    "id": "022",
     "name": "Sadia Afrin",
+    "department": "Management and HR Team",
     "designation": "Assistant HR & Management",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sadia-Afrin-Assistant-HR-Management-1.jpg"
   },
   {
     "id": "005",
     "name": "Tahmina Akter",
+    "department": "UI/UX",
     "designation": "UI/UX Designer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Tahmina-Akter-UI_UX-Designer.jpg"
   },
   {
     "id": "006",
     "name": "Md. Masud",
+    "department": "UI/UX",
     "designation": "UI/UX Designer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Masud-Rana.jpg"
   },
   {
     "id": "007",
     "name": "MD HAZRAT ALI",
+    "department": "Frontend",
     "designation": "Software Engineer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Hazrat-Ali.jpg"
   },
   {
     "id": "008",
     "name": "Md. Zahidul Islam",
+    "department": "Frontend",
     "designation": "Software Engineer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Zahidul-Islam.jpg"
   },
   {
     "id": "009",
     "name": "Sohel Rana Sajib",
+    "department": "Frontend",
     "designation": "Software Engineer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/MD.-SOHEL-RANA.jpg"
   },
   {
     "id": "010",
-    "name": "Mueem Nahid Ibn Mahbub",
-    "designation": "Software Engineer",
-    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Mueem_Nahid_Ibn_Mahbub-scaled.jpeg"
-  },
-  {
-    "id": "011",
-    "name": "Md. Salman Hossan Prottoy",
-    "designation": "Software Engineer",
-    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Salman-Hossan-Prottoy-scaled.jpg"
-  },
-  {
-    "id": "012",
     "name": "Md. Omar Shahariar",
+    "department": "Frontend",
     "designation": "Software Engineer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Omar-Shahariar-scaled.jpg"
   },
   {
-    "id": "013",
+    "id": "011",
     "name": "Saiful Islam Rifat",
+    "department": "Frontend",
     "designation": "Software Engineer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Saiful-Islam-Rifat-scaled.jpg"
   },
   {
-    "id": "014",
+    "id": "012",
     "name": "Md. Rafidul Islam",
+    "department": "Frontend",
     "designation": "Software Engineer",
     "image_src": "/images/team/rafidul.png"
   },
+    {
+    "id": "013",
+    "name": "Mueem Nahid Ibn Mahbub",
+    "department": "Frontend",
+    "designation": "Software Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Mueem_Nahid_Ibn_Mahbub-scaled.jpeg"
+  },
+  {
+    "id": "014",
+    "name": "Md. Salman Hossan Prottoy",
+    "department": "Frontend",
+    "designation": "Software Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Salman-Hossan-Prottoy-scaled.jpg"
+  },
   {
     "id": "015",
+    "name": "Sufi Aurangzeb Hossain",
+    "department": "Backend",
+    "designation": "Software Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sufi-Aurangzeb-Hossain-1-scaled.jpg"
+  },
+    {
+    "id": "016",
+    "name": "Mustahid Hasan",
+    "department": "Backend",
+    "designation": "Software Engineer",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Mustahid_Hasan-Backend-engineer.jpg"
+  },
+    {
+    "id": "017",
     "name": "Md. Sourov Mia",
+    "department": "Backend",
     "designation": "Software Engineer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Md.-Sourov-Mia.jpg"
   },
   {
-    "id": "016",
-    "name": "Mustahid Hasan",
-    "designation": "Software Engineer",
-    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Mustahid_Hasan-Backend-engineer.jpg"
-  },
-  {
-    "id": "017",
-    "name": "Sufi Aurangzeb Hossain",
-    "designation": "Software Engineer",
-    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sufi-Aurangzeb-Hossain-1-scaled.jpg"
-  },
-  {
     "id": "018",
     "name": "Sunny Sutradhar",
+    "department": "Backend",
     "designation": "Software Engineer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sunny-Sutradhar.jpg"
   },
   {
     "id": "019",
     "name": "Sazzad Hosan Shasue Molla",
+    "department": "Backend",
     "designation": "Software Engineer",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/Sazzad-Hosan-Shasue-Molla.jpg"
   },
   {
     "id": "020",
     "name": "MD. Mokter Hossain",
+    "department": "Research",
     "designation": "Research Assistant",
     "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/MD.-Mokter-Hossain.jpg"
+  },
+  {
+    "id": "021",
+    "name": "MD. Ridwanur Rahman",
+    "department": "SNS",
+    "designation": "Executive",
+    "image_src": "https://bc-bangladesh.com/wp-content/uploads/2024/01/MD.-RIDWANUR-RAHMAN-1.png"
+  },
+  {
+    "id": "023",
+    "name": "Rahat Hossain",
+    "department": "SNS",
+    "designation": "Executive",
+    "image_src": "/images/team/rahat.jpeg"
   }
 ]

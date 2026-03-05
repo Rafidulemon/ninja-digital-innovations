@@ -1,0 +1,82 @@
+[
+  {
+    "id": "holiday-2026-new-year",
+    "title": "New Year’s Day (Shogatsu)",
+    "category": "Holiday",
+    "date": "2026-01-01",
+    "summary": "Japan welcomed 2026 with the traditional Shogatsu celebrations. Offices closed for the extended New Year break.",
+    "link": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html"
+  },
+  {
+    "id": "holiday-2026-coming-of-age",
+    "title": "Coming of Age Day",
+    "category": "Holiday",
+    "date": "2026-01-12",
+    "summary": "Seijin no Hi honored new adults turning 20, marked by ceremonies across Japan.",
+    "link": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html"
+  },
+  {
+    "id": "holiday-2026-national-foundation",
+    "title": "National Foundation Day",
+    "category": "Holiday",
+    "date": "2026-02-11",
+    "summary": "Kenkoku Kinen no Hi celebrated the founding of Japan; public offices closed nationwide.",
+    "link": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html"
+  },
+  {
+    "id": "holiday-2026-emperors-birthday",
+    "title": "Emperor’s Birthday",
+    "category": "Holiday",
+    "date": "2026-02-23",
+    "summary": "Emperor Naruhito’s birthday was observed with ceremonies at the Imperial Palace.",
+    "link": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html"
+  },
+  {
+    "id": "jobs-2026-frontend-senior",
+    "title": "Hiring: Senior Frontend Engineer (Next.js)",
+    "category": "Job Vacancy",
+    "date": "2026-02-05",
+    "summary": "We’re expanding our Dhaka/Tokyo hybrid squads for design-forward web experiences.",
+    "link": "/career"
+  },
+  {
+    "id": "jobs-2026-mlops",
+    "title": "Hiring: MLOps / Platform Engineer",
+    "category": "Job Vacancy",
+    "date": "2026-01-22",
+    "summary": "Join the AI platform team to ship eval pipelines, observability, and rollout automation.",
+    "link": "/career"
+  },
+  {
+    "id": "product-2026-rag-evals",
+    "title": "Product Update: RAG Evaluation Harness v2",
+    "category": "Product Updates / Releases",
+    "date": "2026-02-28",
+    "summary": "Released multi-metric scoring with citation accuracy, latency budgets, and cost heatmaps.",
+    "link": "/ai"
+  },
+  {
+    "id": "product-2026-agent-runbooks",
+    "title": "Launch: Agentic Runbook Starter",
+    "category": "Product Updates / Releases",
+    "date": "2026-01-30",
+    "summary": "Template agents with guarded tool calls and human-approval steps for ops teams.",
+    "link": "/ai"
+  },
+  {
+    "id": "tech-2026-cloudflare-workers",
+    "title": "Engineering: Cloudflare Workers + D1 playbook",
+    "category": "Technology & Engineering",
+    "date": "2026-02-18",
+    "summary": "Published our reference for multi-env Workers deployments with secrets, D1, and observability.",
+    "link": "/projects/gmail-triage-automation"
+  },
+  {
+    "id": "tech-2026-qdrant-tuning",
+    "title": "Tech Note: Qdrant hybrid search tuning",
+    "category": "Technology & Engineering",
+    "date": "2026-01-16",
+    "summary": "How we balance BM25 + vector search with rerank for low-latency RAG answers.",
+    "link": "/projects/knowledge-links-ai"
+  }
+]

@@ -118,7 +118,6 @@ const deliveryTracks = [
 const metrics = [
   { label: "Latency budget", value: "< 1.2s", detail: "P95 for RAG answers" },
   { label: "Safety coverage", value: "15+", detail: "red-team suites & filters" },
-  { label: "Grounding", value: "> 92%", detail: "citation accuracy on eval sets" },
   { label: "Ops ready", value: "24/7", detail: "monitoring & runbooks" },
 ];
 
@@ -166,14 +165,14 @@ const AiPage = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-4">
             <Link href="/contact">
-              <Button theme="dark" className="px-6 py-2 text-sm font-semibold">
+              <Button className="text-sm font-semibold">
                 Talk to the AI team
               </Button>
             </Link>
             <Link href="/services">
-              <Button theme="white" className="px-6 py-2 text-sm font-semibold text-slate-900">
+              <Button theme="white" className="text-sm font-semibold text-slate-900">
                 View services
               </Button>
             </Link>

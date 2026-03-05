@@ -46,6 +46,22 @@ const Button = (props: Props) => {
     }
   }, [isClicked]);
 
+  const base = `${isWidthFull ? "w-full" : "w-fit"} cursor-pointer rounded-lg font-medium transition duration-200 px-4 py-2`;
+
+  const themeClasses: Record<NonNullable<Props["theme"]>, string> = {
+    primary:
+      "bg-primary text-white hover:border hover:border-primary hover:bg-white hover:text-primary",
+    secondary:
+      "border border-primary bg-white text-primary hover:bg-primary hover:text-white",
+    cancel:
+      "bg-[#D20D0D] text-white hover:border hover:border-[#D20D0D] hover:bg-white hover:text-[#D20D0D]",
+    "cancel-secondary":
+      "border border-[#D20D0D] bg-white text-[#D20D0D] hover:bg-[#D20D0D] hover:text-white",
+    white: "bg-white text-black hover:scale-105",
+    dark:
+      "border border-[#1937d6] bg-[#1937d6] text-white shadow-[0_12px_24px_rgba(25,55,214,0.28)] hover:-translate-y-0.5 hover:bg-[#2343eb] hover:shadow-[0_16px_32px_rgba(25,55,214,0.38)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b8cff]",
+  };
+
   return (
     <button
       type={type}
@@ -53,56 +69,10 @@ const Button = (props: Props) => {
         setIsClicked(true);
         debouncedOnClick(e);
       }}
-      className={`${className} ${isWidthFull ? "w-full" : "w-fit"} cursor-pointer`}
+      className={`${base} ${themeClasses[theme]} ${className ?? ""}`}
       onFocus={() => {}}
     >
-      {theme === "primary" && (
-        <div
-          className={`${className} p-2 rounded-lg hover:border hover:border-primary hover:bg-white bg-primary text-white`}
-        >
-          <span className="flex flex-col justify-center">{children}</span>
-        </div>
-      )}
-
-      {theme === "secondary" && (
-        <div
-          className={`${className} p-2 rounded-lg border border-primary bg-white text-primary hover:bg-primary hover:text-white`}
-        >
-          <span className="flex flex-col justify-center">{children}</span>
-        </div>
-      )}
-
-      {theme === "cancel" && (
-        <div
-          className={`${className} p-2 rounded-lg hover:border hover:border-[#D20D0D] hover:bg-white hover:text-[#D20D0D] bg-[#D20D0D] text-white`}
-        >
-          <span className="flex flex-col justify-center">{children}</span>
-        </div>
-      )}
-
-      {theme === "cancel-secondary" && (
-        <div
-          className={`${className} p-2 rounded-lg border border-[#D20D0D] bg-white text-[#D20D0D] hover:bg-[#D20D0D] hover:text-white`}
-        >
-          <span className="flex flex-col justify-center">{children}</span>
-        </div>
-      )}
-
-      {theme === "white" && (
-        <div
-          className={`${className} p-2 rounded-lg bg-white text-black hover:scale-105`}
-        >
-          <span className="flex flex-col justify-center">{children}</span>
-        </div>
-      )}
-
-      {theme === "dark" && (
-        <div
-          className={`${className} p-2 rounded-lg border border-[#1937d6] bg-[#1937d6] text-white shadow-[0_12px_24px_rgba(25,55,214,0.28)] transition hover:-translate-y-0.5 hover:bg-[#2343eb] hover:shadow-[0_16px_32px_rgba(25,55,214,0.38)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b8cff]`}
-        >
-          <span className="flex flex-col justify-center">{children}</span>
-        </div>
-      )}
+      <span className="flex flex-col justify-center">{children}</span>
     </button>
   );
 }

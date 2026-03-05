@@ -4,6 +4,7 @@ import React, { type ComponentType } from "react";
 import Link from "next/link";
 import Button from "@/components/button/Button";
 import {
+  FiArrowUpRight,
   FiActivity,
   FiAperture,
   FiCheckCircle,
@@ -14,11 +15,11 @@ import {
   FiMessageSquare,
   FiShield,
   FiTrendingUp,
-  FiUsers,
-  FiZap,
 } from "react-icons/fi";
+import servicesData, { ServiceIconKey } from "@/app/data/services";
 
 type ServicePillar = {
+  slug: string;
   title: string;
   description: string;
   accent: string;
@@ -32,52 +33,22 @@ type Step = {
   icon: ComponentType<{ size?: number }>;
 };
 
-const pillars: ServicePillar[] = [
-  {
-    title: "Engineering Services",
-    description: "Full-stack squads delivering performant, secure, and AI-native products.",
-    accent: "from-[#4f8bff] via-[#6f8fc4] to-[#b6d0ff]",
-    icon: FiCode,
-    highlights: [
-      "Product engineering for web, mobile, and platforms",
-      "Security-first architecture & cloud hardening",
-      "Performance tuning, SRE, and reliability playbooks",
-    ],
-  },
-  {
-    title: "AI & Machine Learning",
-    description: "Applied AI that ships: generative, predictive, and MLOps in production.",
-    accent: "from-[#22c55e] via-[#6ee7b7] to-[#a7f3d0]",
-    icon: FiCpu,
-    highlights: [
-      "GenAI products and LLM-driven workflows",
-      "Feature stores, data contracts, and evaluation",
-      "Observability-first MLOps pipelines",
-    ],
-  },
-  {
-    title: "Security & Governance",
-    description: "Secure by design—threat modeling to automated guardrails and compliance.",
-    accent: "from-[#fb7185] via-[#f472b6] to-[#f9a8d4]",
-    icon: FiShield,
-    highlights: [
-      "Architecture reviews & penetration testing",
-      "Zero-trust identity, secrets, and key management",
-      "Policy-as-code and automated compliance",
-    ],
-  },
-  {
-    title: "SNS Strategy & Creative",
-    description: "Stories that connect data, culture, and community to grow your brand.",
-    accent: "from-[#34d399] via-[#22c55e] to-[#16a34a]",
-    icon: FiMessageSquare,
-    highlights: [
-      "Channel strategy, content engines, and ops",
-      "Influencer programs and collaboration frameworks",
-      "Campaign analytics, experimentation, and lift",
-    ],
-  },
-];
+const iconMap: Record<ServiceIconKey, ComponentType<{ size?: number }>> = {
+  FiCode,
+  FiCpu,
+  FiShield,
+  FiDatabase,
+  FiMessageSquare,
+};
+
+const pillars: ServicePillar[] = servicesData.map((service) => ({
+  slug: service.slug,
+  title: service.title,
+  description: service.tagline,
+  accent: service.accent,
+  icon: iconMap[service.icon],
+  highlights: service.highlights.slice(0, 3),
+}));
 
 const delivery: Step[] = [
   {
@@ -155,14 +126,14 @@ const ServicesPage = () => {
               From concept to scale, we combine engineering, security, data, and social strategy to launch resilient experiences.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-4">
             <Link href="/contact">
-              <Button theme="primary" className="px-6 py-2 text-sm font-semibold">
+              <Button theme="primary" className="text-sm font-semibold">
                 Start a project
               </Button>
             </Link>
             <Link href="/company/team">
-              <Button theme="white" className="px-6 py-2 text-sm font-semibold text-slate-900">
+              <Button theme="white" className="text-sm font-semibold text-slate-900">
                 Meet the team
               </Button>
             </Link>
@@ -174,7 +145,7 @@ const ServicesPage = () => {
       <section className="relative isolate -mt-12 bg-white pb-16 pt-6 sm:pt-10 md:pb-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-10">
           <div className="grid gap-6 md:grid-cols-2">
-            {pillars.map(({ title, description, accent, icon: Icon, highlights }) => (
+            {pillars.map(({ slug, title, description, accent, icon: Icon, highlights }) => (
               <article
                 key={title}
                 className="group relative overflow-hidden rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_25px_80px_-48px_rgba(15,23,42,0.28)] transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_32px_110px_-60px_rgba(15,23,42,0.32)]"
@@ -224,6 +195,15 @@ const ServicesPage = () => {
                       </p>
                     </div>
                   ))}
+                </div>
+                <div className="relative mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
+                  <Link
+                    href={`/services/${slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-primaryBlueDark"
+                  >
+                    View details <FiArrowUpRight size={14} aria-hidden />
+                  </Link>
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">Service</span>
                 </div>
               </article>
             ))}

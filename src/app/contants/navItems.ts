@@ -23,7 +23,7 @@ export const getNavItems = (): NavItem[] => [
   },
   { href: "/services", label: "Services" },
   { href: "/ai", label: "AI" },
-  { href: "/products", label: "Products" },
+  { href: "/projects", label: "Projects" },
   { href: "/blogs", label: "Blogs" },
   { href: "/career", label: "Career" },
 ];

@@ -1,40 +1,16 @@
 import Link from "next/link";
-import { IconType } from "react-icons";
-import { FiCode, FiCpu, FiMessageSquare, FiShield, FiZap } from "react-icons/fi";
+import { FiCode, FiCpu, FiDatabase, FiMessageSquare, FiShield, FiZap } from "react-icons/fi";
+import servicesData, { ServiceDetail, ServiceIconKey } from "@/app/data/services";
 
-type ServiceCard = {
-  title: string;
-  description: string;
-  cta: string;
-  icon: IconType;
+const iconMap: Record<ServiceIconKey, typeof FiCode> = {
+  FiCode,
+  FiCpu,
+  FiShield,
+  FiDatabase,
+  FiMessageSquare,
 };
 
-const services: ServiceCard[] = [
-  {
-    title: "Engineering Services",
-    description: "Full-stack squads delivering performant, secure, and AI-native web, mobile, and platform products.",
-    cta: "read more",
-    icon: FiCode,
-  },
-  {
-    title: "AI & Machine Learning",
-    description: "GenAI products, LLM workflows, and MLOps pipelines with observability and governance baked in.",
-    cta: "read more",
-    icon: FiCpu,
-  },
-  {
-    title: "Security & Governance",
-    description: "Zero-trust identity, threat modeling, pen testing, and policy-as-code to keep systems resilient.",
-    cta: "read more",
-    icon: FiShield,
-  },
-  {
-    title: "SNS Strategy & Creative",
-    description: "Channel strategy, content engines, influencer programs, and analytics to grow community and brand.",
-    cta: "read more",
-    icon: FiMessageSquare,
-  },
-];
+const services: ServiceDetail[] = servicesData.filter((service) => service.featuredOnHome !== false);
 
 const ServiceSection = () => {
   return (
@@ -62,10 +38,12 @@ const ServiceSection = () => {
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-          {services.map(({ title, description, cta, icon: Icon }, idx) => (
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {services.map((service, idx) => {
+            const Icon = iconMap[service.icon];
+            return (
             <article
-              key={title}
+              key={service.slug}
               className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-white text-slate-900 shadow-[0_30px_80px_-50px_rgba(0,0,0,0.6)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_40px_110px_-65px_rgba(0,0,0,0.65)]"
               style={{ animation: "home-fade-up 0.9s ease both", animationDelay: `${idx * 0.06}s` }}
             >
@@ -82,22 +60,24 @@ const ServiceSection = () => {
                   <Icon size={22} aria-hidden />
                 </div>
                 <div className="flex flex-1 flex-col gap-2">
-                  <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+                  <h3 className="text-lg font-semibold text-slate-900">{service.title}</h3>
                   <p className="text-sm leading-relaxed text-slate-600 min-h-[90px]">
-                    {description}
+                    {service.summary}
                   </p>
                 </div>
                 <div className="mt-auto">
-                  <button
+                  <Link
+                    href={`/services/${service.slug}`}
                     className="inline-flex items-center gap-2 rounded-full border border-[#5890a8]/45 px-4 py-2 text-sm font-semibold text-[#5890a8] transition duration-200 hover:-translate-y-[2px] hover:bg-[#5890a8]/12"
                   >
-                    {cta}
+                    View details
                     <FiZap size={14} aria-hidden />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </article>
-          ))}
+          );
+          })}
 
           <article className="group relative flex h-full flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-[#5890a8] to-[#7fb7cc] text-white shadow-[0_30px_90px_-60px_rgba(0,0,0,0.65)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_40px_120px_-70px_rgba(0,0,0,0.6)]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.16),transparent_40%),radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.18),transparent_42%)]" aria-hidden />
