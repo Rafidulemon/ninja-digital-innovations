@@ -44,6 +44,9 @@ const Header = ({ isDark = false }: HeaderProps) => {
       isProjectsRoute
   );
   const isDarkHeader = isDark || isHeroActive;
+  const setHeroActive = React.useCallback((val: boolean) => {
+    requestAnimationFrame(() => setIsHeroActive(val));
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
@@ -83,19 +86,19 @@ const Header = ({ isDark = false }: HeaderProps) => {
                           ? pathname.startsWith("/projects/") ? "project-detail-hero" : "projects-hero"
                           : null;
     if (!heroId) {
-      setIsHeroActive(false);
+      setHeroActive(false);
       return;
     }
 
     const heroSection = document.getElementById(heroId);
     if (!heroSection) {
-      setIsHeroActive(false);
+      setHeroActive(false);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsHeroActive(entry.isIntersecting);
+        setHeroActive(entry.isIntersecting);
       },
       { threshold: 0.2, rootMargin: "-80px 0px 0px 0px" }
     );
@@ -113,7 +116,9 @@ const Header = ({ isDark = false }: HeaderProps) => {
     isBlogsRoute,
     isCareerRoute,
     isProjectsRoute,
+    isNewsRoute,
     pathname,
+    setHeroActive,
   ]);
 
   const navItems: NavItem[] = getNavItems();
@@ -133,6 +138,18 @@ const Header = ({ isDark = false }: HeaderProps) => {
   const navInactiveClass = isDarkHeader
     ? "text-white/70 hover:text-white"
     : "text-slate-600 hover:text-slate-900";
+
+  const [hoveredNav, setHoveredNav] = useState<string | null>(null);
+  const hoverCloseTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleNavEnter = (href: string) => {
+    if (hoverCloseTimer.current) clearTimeout(hoverCloseTimer.current);
+    setHoveredNav(href);
+  };
+
+  const handleNavLeave = () => {
+    hoverCloseTimer.current = setTimeout(() => setHoveredNav(null), 140);
+  };
 
   return (
     <>
@@ -212,7 +229,12 @@ const Header = ({ isDark = false }: HeaderProps) => {
 
               if (navItem.children?.length) {
                 return (
-                  <div key={navItem.href} className="group relative">
+                  <div
+                    key={navItem.href}
+                    className="relative"
+                    onMouseEnter={() => handleNavEnter(navItem.href)}
+                    onMouseLeave={handleNavLeave}
+                  >
                     <Link
                       href={navItem.href}
                       className={`relative inline-flex items-center gap-1 transition-colors ${
@@ -224,11 +246,15 @@ const Header = ({ isDark = false }: HeaderProps) => {
                         size={16}
                         className={`transition-transform duration-200 ${
                           isParentActive ? "translate-y-[1px]" : ""
-                        } group-hover:-translate-y-[1px]`}
+                        } ${hoveredNav === navItem.href ? "-translate-y-[1px]" : ""}`}
                         aria-hidden="true"
                       />
                     </Link>
-                    <div className="pointer-events-none absolute left-1/2 top-[115%] z-[999] -translate-x-1/2 opacity-0 transition duration-200 ease-out group-hover:pointer-events-auto group-hover:opacity-100">
+                    <div
+                      className={`absolute left-1/2 top-[115%] z-[999] -translate-x-1/2 transition duration-150 ease-out ${
+                        hoveredNav === navItem.href ? "pointer-events-auto opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-2"
+                      }`}
+                    >
                       <div
                         className={`w-56 overflow-hidden rounded-2xl border bg-white/95 shadow-[0_18px_60px_rgba(15,23,42,0.18)] backdrop-blur ${
                           isDarkHeader ? "border-white/15" : "border-slate-200"

@@ -51,11 +51,11 @@ const Button = (props: Props) => {
 
   const themeClasses: Record<NonNullable<Props["theme"]>, string> = {
     primary:
-      "bg-primary text-white hover:border hover:border-primary hover:bg-white",
+      "bg-primary text-white hover:scale-105",
     secondary:
-      "border border-primary bg-white text-primary hover:bg-primary hover:text-white",
+      "border border-primary bg-white text-primary hover:scale-105",
     cancel:
-      "bg-[#D20D0D] text-white hover:border hover:border-[#D20D0D] hover:bg-white hover:text-[#D20D0D]",
+      "bg-[#D20D0D] text-white hover:scale-105",
     "cancel-secondary":
       "border border-[#D20D0D] bg-white text-[#D20D0D] hover:bg-[#D20D0D] hover:text-white",
     white: "bg-white text-black hover:scale-105",

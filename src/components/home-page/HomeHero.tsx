@@ -96,7 +96,7 @@ const HeroSection = () => {
               className="group relative w-full h-[56px] px-8 flex flex-col items-center justify-center rounded-[60px] bg-primary text-white border border-transparent overflow-hidden transition-colors duration-300 ease-in-out hover:border-primary"
             >
               <span className="relative z-10 font-medium text-white transition-colors duration-200 ease-in-out group-hover:text-primary">
-                Let's Build Together
+                Let&apos;s Build Together
               </span>
               <span className="pointer-events-none absolute inset-0 translate-y-full bg-white transition-transform duration-300 ease-in-out group-hover:translate-y-0" aria-hidden />
             </Link>

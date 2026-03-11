@@ -201,7 +201,7 @@ const ContactPage = () => {
                   </span>
                   <div className="flex flex-col">
                     <span className="text-sm font-semibold">Office hours</span>
-                    <p className="text-sm text-slate-600">Mon–Fri / 9:00–19:00 JST</p>
+                    <p className="text-sm text-slate-600">Mon–Fri / 9:00–18:00 BST</p>
                   </div>
                 </div>
               </div>

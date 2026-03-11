@@ -162,12 +162,12 @@ const ProjectsPage = () => {
                   className="group relative overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_28px_80px_-48px_rgba(15,23,42,0.32)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_34px_110px_-60px_rgba(15,23,42,0.35)]"
                   style={{ animation: "home-fade-up 0.9s ease both", animationDelay: `${idx * 0.06}s` }}
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 p-3 sm:p-4">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-3xl bg-slate-100 p-3 sm:p-4">
                     <Image
                       src={project.image_src}
                       alt={project.name}
                       fill
-                      className="object-contain transition duration-500 group-hover:scale-[1.02]"
+                      className="object-contain transition duration-500 group-hover:scale-[1.01]"
                       sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 600px"
                       priority={idx < 2}
                     />

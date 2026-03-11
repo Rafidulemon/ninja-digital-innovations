@@ -3,7 +3,7 @@
         "name": "Knowledge Links AI",
         "slug": "knowledge-links-ai",
         "details": "RAG application that turns scattered knowledge into reliable answers: ingests docs, chunks and embeds to a vector store, performs hybrid retrieval with reranking, and assembles responses with grounded citations. Includes feedback + evaluation loop, role-based access, and observability for latency, cost, and quality.",
-        "image_src": "/images/projects/rag.png",
+        "image_src": "/images/projects/rag2.png",
         "live_url": "https://demo.knowledgelinks.ai/",
         "technologies": [
             { "name": "React", "logo": "/images/technologies/react.png" },
@@ -29,7 +29,7 @@
         "name": "MoeGuide",
         "slug": "moeguide",
         "details": "This is a tourism and guide discovery web application designed to help users explore Tokyo-based guides and experiences. The platform provides a responsive and ensures seamless frontend–backend communication using a type-safe architecture.",
-        "image_src": "/images/projects/moeguide.png",
+        "image_src": "/images/projects/moeguide2.png",
         "live_url": "https://moeguide.jp/",
         "technologies": [
             { "name": "React", "logo": "/images/technologies/react.png" },
@@ -51,7 +51,7 @@
         "name": "Suirikyou",
         "slug": "suirikyou",
         "details": "Suirikyou is a responsive online quiz web application designed to provide users with an interactive and dynamic quiz-taking experience. The platform allows users to attempt quizzes, navigate between questions, and receive real-time feedback with smooth state management and efficient frontend–backend communication through a type-safe architecture.",
-        "image_src": "/images/projects/suirikyou.png",
+        "image_src": "/images/projects/suirikyou2.png",
         "live_url": "https://suirikyou.vercel.app/",
         "technologies": [
             { "name": "React", "logo": "/images/technologies/react.png" },

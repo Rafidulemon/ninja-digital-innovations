@@ -19,6 +19,7 @@ export type BlogPost = {
   featured?: boolean;
   accent: string;
   banner: string;
+  highlights?: string[];
   deck?: string;
   content: BlogContentBlock[];
 };
@@ -36,7 +37,8 @@ const blogs: BlogPost[] = [
     author: "Maya Park",
     featured: true,
     accent: "from-[#3b82f6] via-[#7c6bff] to-[#4bd1c8]",
-    banner: "/images/blogs/ai-copilot.svg",
+    banner: "/images/blogs/shipping_ai_copilot.png",
+    highlights: ["Guardrails before launch", "Evals on every prompt", "Human-in-the-loop defaults"],
     content: [
       {
         type: "heading",
@@ -67,6 +69,42 @@ const blogs: BlogPost[] = [
         text: "The difference was the safety telemetry—we could show legal exactly where guardrails triggered before launch.",
         author: "Director of Product, fintech client",
       },
+      { type: "heading", text: "Architecture sketch" },
+      {
+        type: "paragraph",
+        text: "Treat the copilot like a pipeline: intent → policy → plan → tools → answer. Observability wraps every hop with traces and redaction to keep legal and ops in the same loop.",
+      },
+      {
+        type: "list",
+        title: "Debug checklist",
+        items: [
+          "Trace spans for tool calls with input/output masking",
+          "Golden set pass rate by prompt version",
+          "Fallback success rate when policy blocks execution",
+        ],
+      },
+      {
+        type: "callout",
+        label: "Launch criteria",
+        body: "Evals ≥ 0.86 accuracy on golden set, P95 latency < 1.2s, policy hit rate < 6%, and CSAT ≥ 4.4/5 in pilot.",
+      },
+      {
+        type: "heading",
+        text: "Architecture sketch",
+      },
+      {
+        type: "paragraph",
+        text: "Treat the copilot like a pipeline: intent → policy → plan → tools → answer. Observability wraps every hop with traces and redaction to keep legal and ops in the same loop.",
+      },
+      {
+        type: "list",
+        title: "Debug checklist",
+        items: [
+          "Trace spans for tool calls with input/output masking",
+          "Golden set pass rate by prompt version",
+          "Fallback success rate when policy blocks execution",
+        ],
+      },
     ],
   },
   {
@@ -81,7 +119,8 @@ const blogs: BlogPost[] = [
     author: "Leo Tan",
     featured: true,
     accent: "from-[#22c55e] via-[#4ade80] to-[#0ea5e9]",
-    banner: "/images/blogs/reliability-ledger.svg",
+    banner: "/images/blogs/designing_saas_uptime.png",
+    highlights: ["Ledger SLOs", "Dependencies with budgets", "Actionable runbooks"],
     content: [
       {
         type: "heading",
@@ -106,6 +145,37 @@ const blogs: BlogPost[] = [
           "Blameless review within 48h with SLO debit/credit updates",
         ],
       },
+      {
+        type: "heading",
+        text: "What makes a good ledger entry",
+      },
+      {
+        type: "paragraph",
+        text: "Every dependency should have an owner, budget, and current burn rate. Capture noisy neighbors and vendor risk in the same view so product can trade scope with eyes open.",
+      },
+      {
+        type: "code",
+        language: "yaml",
+        code: `slo_ledger:
+  service: api-gateway
+  owner: platform
+  budgets:
+    auth0: 15%
+    payments: 25%
+    postgres: 35%
+  alerts:
+    burn_2h: page platform-oncall
+    burn_24h: open ticket + slack #reliability
+  runbook: https://runbooks.ndi/api-gateway-slo`,
+      },
+      {
+        type: "heading",
+        text: "What makes a good ledger entry",
+      },
+      {
+        type: "paragraph",
+        text: "Every dependency should have an owner, budget, and current burn rate. Capture noisy neighbors and vendor risk in the same view so product can trade scope with eyes open.",
+      },
     ],
   },
   {
@@ -120,7 +190,8 @@ const blogs: BlogPost[] = [
     author: "Rina Das",
     featured: true,
     accent: "from-[#f59e0b] via-[#fb923c] to-[#ef4444]",
-    banner: "/images/blogs/content-engine.svg",
+    banner: "/images/blogs/content_engines.png",
+    highlights: ["Modular beats", "Creator pods", "Sustainable cadence"],
     content: [
       { type: "heading", text: "Modularity beats heroics" },
       {
@@ -141,6 +212,31 @@ const blogs: BlogPost[] = [
         label: "Metric",
         body: "We target creator time under 3.5h per drop while maintaining engagement velocity.",
       },
+      { type: "heading", text: "Templates we keep on hand" },
+      {
+        type: "list",
+        items: [
+          "Proof pack: stat + short story + linkable artifact",
+          "Visual pack: motion + caption + alt text ready to paste",
+          "CTA pack: two variants with different friction levels",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Optimize for completion and share velocity, not vanity impressions. Build a recycling list of high-performing beats and resurface them quarterly with fresh hooks.",
+      },
+      {
+        type: "heading",
+        text: "Templates we keep on hand",
+      },
+      {
+        type: "list",
+        items: [
+          "Proof pack: stat + short story + linkable artifact",
+          "Visual pack: motion + caption + alt text ready to paste",
+          "CTA pack: two variants with different friction levels",
+        ],
+      },
     ],
   },
   {
@@ -154,7 +250,8 @@ const blogs: BlogPost[] = [
     readTime: "9 min read",
     author: "Akira Ito",
     accent: "from-[#7c3aed] via-[#6366f1] to-[#22c55e]",
-    banner: "/images/blogs/zero-trust.svg",
+    banner: "/images/blogs/zero_trust_habits.png",
+    highlights: ["Ephemeral everything", "Short-lived secrets", "Paved roads"],
     content: [
       { type: "heading", text: "Ship secure by removing footguns" },
       {
@@ -176,6 +273,17 @@ const blogs: BlogPost[] = [
           "SBOM + vuln gates hooked into artifact promotion",
         ],
       },
+      { type: "callout", label: "Outcome", body: "Mean time-to-ship stayed under 2 days while shrinking blast radius." },
+      { type: "heading", text: "Security UX patterns" },
+      {
+        type: "list",
+        items: [
+          "Pre-flight checks surface policies before deploy, not after",
+          "CLI helpers wrap short-lived creds so engineers never see secrets",
+          "Security scorecard in PR template with auto-filled evidence",
+        ],
+      },
+      { type: "callout", label: "Outcome", body: "Mean time-to-ship stayed under 2 days while shrinking blast radius." },
     ],
   },
   {
@@ -189,7 +297,8 @@ const blogs: BlogPost[] = [
     readTime: "5 min read",
     author: "Noor Rahman",
     accent: "from-[#06b6d4] via-[#0ea5e9] to-[#7c3aed]",
-    banner: "/images/blogs/product-discovery.svg",
+    banner: "/images/blogs/product_discovery.png",
+    highlights: ["10-day spikes", "Decision memos", "Joint squads"],
     content: [
       { type: "heading", text: "A spike with explicit exit criteria" },
       {
@@ -210,6 +319,19 @@ const blogs: BlogPost[] = [
         label: "Tip",
         body: "Ship the decision memo even if you defer the build—it becomes the north star for future teams.",
       },
+      {
+        type: "paragraph",
+        text: "Decision memos force clarity. Keep options, constraints, appetite, and risks on one page so execs can trade scope without meetings.",
+      },
+      { type: "heading", text: "Stakeholder map" },
+      {
+        type: "list",
+        items: [
+          "Sponsor: approves appetite and success criteria",
+          "Tech lead: owns feasibility notes and risks",
+          "Design: validates desirability with 3 user touchpoints",
+        ],
+      },
     ],
   },
   {
@@ -223,7 +345,8 @@ const blogs: BlogPost[] = [
     readTime: "6 min read",
     author: "Sofia Mendez",
     accent: "from-[#14b8a6] via-[#34d399] to-[#3b82f6]",
-    banner: "/images/blogs/telemetry.svg",
+    banner: "/images/blogs/telemetry.png",
+    highlights: ["Traces-first", "Cardinality budgets", "Runbooks linked to alerts"],
     content: [
       { type: "heading", text: "Lead with traces, not dashboards" },
       {
@@ -245,6 +368,17 @@ const blogs: BlogPost[] = [
           "Sampling tuned per route with business impact in mind",
         ],
       },
+      { type: "paragraph", text: "Adopt sampling that tracks revenue or risk—not just traffic—so the right customers stay in view during incidents." },
+      { type: "heading", text: "Dashboards that stay lean" },
+      {
+        type: "list",
+        items: [
+          "Ship a single service health score: availability, latency, error rate",
+          "One panel per user journey; everything else is a saved trace query",
+          "Alert on burn rate and user impact, not raw error counts",
+        ],
+      },
+      { type: "paragraph", text: "Adopt sampling that tracks revenue or risk—not just traffic—so the right customers stay in view during incidents." },
     ],
   },
   {
@@ -258,7 +392,8 @@ const blogs: BlogPost[] = [
     readTime: "10 min read",
     author: "Maya Park",
     accent: "from-[#ec4899] via-[#a855f7] to-[#6366f1]",
-    banner: "/images/blogs/multilingual-chat.svg",
+    banner: "/images/blogs/building_multilingual.png",
+    highlights: ["Locale routing", "Data residency", "Policy-safe prompts"],
     content: [
       { type: "heading", text: "Segmentation is the first defense" },
       {
@@ -280,6 +415,20 @@ const blogs: BlogPost[] = [
           "User-visible consent + data expiry surfaced in the UI",
         ],
       },
+      {
+        type: "callout",
+        label: "Result",
+        body: "Latency stayed under 1.4s P95 while satisfying APAC data residency and consent requirements.",
+      },
+      { type: "heading", text: "Localization checklist" },
+      {
+        type: "list",
+        items: [
+          "Per-locale prompts with unit tests for tone and policy",
+          "Fallback locales defined per market (e.g., BN → EN-APAC)",
+          "Metrics segmented by locale and data region",
+        ],
+      },
     ],
   },
   {
@@ -293,7 +442,8 @@ const blogs: BlogPost[] = [
     readTime: "7 min read",
     author: "Elena Iwasaki",
     accent: "from-[#6366f1] via-[#3b82f6] to-[#22c55e]",
-    banner: "/images/blogs/motion-system.svg",
+    banner: "/images/blogs/why_our_design.png",
+    highlights: ["Motion tokens", "Accessible defaults", "CI checks"],
     content: [
       { type: "heading", text: "Motion is codified like color" },
       {
@@ -311,6 +461,16 @@ const blogs: BlogPost[] = [
         label: "Governance",
         body: "Each new pattern ships with a reduced-motion variant and automated axe checks in CI.",
       },
+      { type: "paragraph", text: "Designers document allowed entrances/exits and when to prefer opacity over translation—keeps motion delightful but polite." },
+      {
+        type: "list",
+        title: "Motion red lines",
+        items: [
+          "No parallax on scroll for body text",
+          "Respect prefers-reduced-motion with zero animations",
+          "Avoid oscillation; keep easing curves monotonic",
+        ],
+      },
     ],
   },
   {
@@ -324,7 +484,8 @@ const blogs: BlogPost[] = [
     readTime: "5 min read",
     author: "Leo Tan",
     accent: "from-[#0ea5e9] via-[#22c55e] to-[#14b8a6]",
-    banner: "/images/blogs/client-onboarding.svg",
+    banner: "/images/blogs/client_onboarding.png",
+    highlights: ["Time-boxed clarity", "Risk register", "Decision log"],
     content: [
       { type: "heading", text: "Time-boxed clarity" },
       {
@@ -345,6 +506,16 @@ const blogs: BlogPost[] = [
         text: "The kickoff finished in 55 minutes and we had owners for every risk—that never happens.",
         author: "Eng manager, enterprise data team",
       },
+      { type: "paragraph", text: "We keep a running decision log with owners and due dates—avoids drift and lets stakeholders self-serve status." },
+      { type: "heading", text: "Artifacts you can steal" },
+      {
+        type: "list",
+        items: [
+          "One-page kickoff template (goal, constraints, success, risks)",
+          "Risk register with impact × probability scores",
+          "Decision log with owner, due date, and status",
+        ],
+      },
     ],
   },
   {
@@ -358,7 +529,8 @@ const blogs: BlogPost[] = [
     readTime: "4 min read",
     author: "Rina Das",
     accent: "from-[#f97316] via-[#ec4899] to-[#6366f1]",
-    banner: "/images/blogs/retro-roadmap.svg",
+    banner: "/images/blogs/running_retros.png",
+    highlights: ["Bets from retros", "Scoring grid", "Owner updates"],
     content: [
       { type: "heading", text: "Retros that feed the roadmap" },
       {
@@ -378,6 +550,16 @@ const blogs: BlogPost[] = [
         type: "callout",
         label: "Follow-through",
         body: "Owners report progress in the next retro with a one-slide update tied to the bet they took.",
+      },
+      { type: "paragraph", text: "Make the slide template trivial: problem, bet, owner, metric, next milestone. The repetition keeps bets alive." },
+      { type: "heading", text: "Anti-patterns to avoid" },
+      {
+        type: "list",
+        items: [
+          "Action items without owners or deadlines",
+          "Retros without metrics—feelings only",
+          "Bets that never show up in the roadmap",
+        ],
       },
     ],
   },

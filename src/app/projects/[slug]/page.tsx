@@ -102,7 +102,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
       <section className="relative -mt-12 pb-16 pt-6 sm:pt-10 md:pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(88,116,168,0.08),transparent_28%),radial-gradient(circle_at_82%_14%,rgba(88,144,168,0.08),transparent_30%),radial-gradient(circle_at_70%_74%,rgba(88,116,168,0.08),transparent_28%)]" aria-hidden />
         <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-10">
-          <div className="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_26px_80px_-48px_rgba(15,23,42,0.32)]">
+            <div className="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_26px_80px_-48px_rgba(15,23,42,0.32)]">
             <div className="relative bg-gradient-to-r from-primary/5 via-white to-[#0ea5e9]/5 px-6 py-5 sm:px-8 sm:py-6">
               <div className="flex items-center gap-3 text-sm font-semibold text-primary">
                 <FiGlobe size={16} aria-hidden />

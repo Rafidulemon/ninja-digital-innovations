@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FiArrowUpRight, FiExternalLink, FiLayers } from "react-icons/fi";
+import { FiArrowUpRight, FiExternalLink } from "react-icons/fi";
 import Button from "@/components/button/Button";
 import projectsData from "@/app/data/projects.json";
 
@@ -13,13 +13,6 @@ type Project = {
 };
 
 const projects = projectsData as Project[];
-
-const projectAccent: Record<string, string> = {
-  "knowledge-links-ai": "from-[#0ea5e9] via-[#6366f1] to-[#22d3ee]",
-  moeguide: "from-[#f59e0b] via-[#f97316] to-[#fb7185]",
-  suirikyou: "from-[#8b5cf6] via-[#6366f1] to-[#22c55e]",
-  "gmail-triage-automation": "from-[#10b981] via-[#14b8a6] to-[#0ea5e9]",
-};
 
 const ProjectsSection = () => {
   const featured = projects.slice(0, 3);
@@ -66,29 +59,21 @@ const ProjectsSection = () => {
 
         <div className="grid gap-6 md:grid-cols-3">
           {featured.map((project) => {
-            const slug = project.slug;
-            const accent = projectAccent[slug] ?? "from-[#5874a8] via-[#6f8fc4] to-[#22d3ee]";
             return (
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
                 className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_26px_80px_-56px_rgba(15,23,42,0.32)] transition duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[0_32px_110px_-64px_rgba(15,23,42,0.35)]"
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-3xl bg-slate-100">
                   <Image
                     src={project.image_src}
                     alt={project.name}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 400px"
-                    className="object-contain transition duration-500 group-hover:scale-[1.02]"
+                    className="object-contain transition duration-500 group-hover:scale-[1.01]"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/25 via-transparent to-transparent" aria-hidden />
-                  <div
-                    className={`absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${accent} px-3 py-1 text-xs font-semibold text-white shadow-[0_12px_32px_-18px_rgba(0,0,0,0.4)]`}
-                  >
-                    <FiLayers size={14} aria-hidden />
-                    Case study
-                  </div>
                 </div>
 
                 <div className="flex flex-1 flex-col gap-3 px-5 py-4 sm:px-6 sm:py-5">
