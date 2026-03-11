@@ -5,25 +5,12 @@ import { useMemo, useState } from "react";
 import {
   FiArrowRight,
   FiBookOpen,
-  FiClock,
   FiFeather,
   FiFilter,
   FiSearch,
-  FiTag,
-  FiTrendingUp,
 } from "react-icons/fi";
-
-type BlogPost = {
-  title: string;
-  summary: string;
-  category: string;
-  tags: string[];
-  date: string;
-  readTime: string;
-  author: string;
-  featured?: boolean;
-  accent: string;
-};
+import blogs from "@/app/data/blogs";
+import BlogCard from "@/components/blog/BlogCard";
 
 type Series = {
   title: string;
@@ -31,122 +18,6 @@ type Series = {
   cadence: string;
   focus: string;
 };
-
-const posts: BlogPost[] = [
-  {
-    title: "Shipping AI copilots with safety rails",
-    summary:
-      "Architecting LLM-powered assistants with eval loops, policy checks, and graceful fallbacks before you ever hit production.",
-    category: "AI",
-    tags: ["LLM", "Evaluation", "Product"],
-    date: "February 20, 2026",
-    readTime: "8 min read",
-    author: "Maya Park",
-    featured: true,
-    accent: "from-[#3b82f6] via-[#7c6bff] to-[#4bd1c8]",
-  },
-  {
-    title: "Designing SaaS uptime like a reliability ledger",
-    summary:
-      "How we track golden paths, SLOs, and dependency budgets so every launch comes with clear operational guardrails.",
-    category: "Engineering",
-    tags: ["SLO", "Reliability", "Playbook"],
-    date: "January 28, 2026",
-    readTime: "7 min read",
-    author: "Leo Tan",
-    featured: true,
-    accent: "from-[#22c55e] via-[#4ade80] to-[#0ea5e9]",
-  },
-  {
-    title: "Content engines that don’t burn out your team",
-    summary:
-      "Our SNS operating model: modular storytelling, creator pods, and analytics loops that keep momentum without burnout.",
-    category: "Culture",
-    tags: ["SNS", "Operations", "Growth"],
-    date: "February 8, 2026",
-    readTime: "6 min read",
-    author: "Rina Das",
-    featured: true,
-    accent: "from-[#f59e0b] via-[#fb923c] to-[#ef4444]",
-  },
-  {
-    title: "Zero-trust habits for small, fast teams",
-    summary:
-      "Practical steps—ephemeral dev environments, short-lived creds, and paved roads—that make secure defaults effortless.",
-    category: "Security",
-    tags: ["AppSec", "Zero Trust", "DevEx"],
-    date: "December 12, 2025",
-    readTime: "9 min read",
-    author: "Akira Ito",
-    accent: "from-[#7c3aed] via-[#6366f1] to-[#22c55e]",
-  },
-  {
-    title: "Product discovery at the speed of client services",
-    summary:
-      "How we run 10-day spikes with joint squads, user co-design, and explicit decision memos to de-risk scope.",
-    category: "Product",
-    tags: ["Discovery", "Workshops", "Decision Making"],
-    date: "February 2, 2026",
-    readTime: "5 min read",
-    author: "Noor Rahman",
-    accent: "from-[#06b6d4] via-[#0ea5e9] to-[#7c3aed]",
-  },
-  {
-    title: "Telemetry that makes engineers faster, not busier",
-    summary:
-      "A lean observability stack built on traces-first thinking, cardinality budgets, and opinionated dashboards.",
-    category: "Engineering",
-    tags: ["Observability", "Tracing", "DX"],
-    date: "January 15, 2026",
-    readTime: "6 min read",
-    author: "Sofia Mendez",
-    accent: "from-[#14b8a6] via-[#34d399] to-[#3b82f6]",
-  },
-  {
-    title: "Building multilingual chat for regulated industries",
-    summary:
-      "Data residency, prompt isolation, and evaluation ladders when your users span APAC compliance regimes.",
-    category: "AI",
-    tags: ["Localization", "Compliance", "Chat"],
-    date: "November 30, 2025",
-    readTime: "10 min read",
-    author: "Maya Park",
-    accent: "from-[#ec4899] via-[#a855f7] to-[#6366f1]",
-  },
-  {
-    title: "Why our design system ships motion as a first-class token",
-    summary:
-      "Motion primitives, focus safety, and a governance loop that keeps brand energy without breaking accessibility.",
-    category: "Design",
-    tags: ["Design Systems", "Accessibility", "Motion"],
-    date: "January 5, 2026",
-    readTime: "7 min read",
-    author: "Elena Iwasaki",
-    accent: "from-[#6366f1] via-[#3b82f6] to-[#22c55e]",
-  },
-  {
-    title: "Client onboarding that respects engineers’ time",
-    summary:
-      "Templates for briefs, architecture baselines, and risk registers that keep kickoffs concise and accountable.",
-    category: "Operations",
-    tags: ["Templates", "Process", "Leadership"],
-    date: "December 18, 2025",
-    readTime: "5 min read",
-    author: "Leo Tan",
-    accent: "from-[#0ea5e9] via-[#22c55e] to-[#14b8a6]",
-  },
-  {
-    title: "Running retros that turn into roadmaps",
-    summary:
-      "A facilitation script, metrics, and follow-through ritual that converts retro notes into prioritized bets.",
-    category: "Culture",
-    tags: ["Retros", "Teams", "Leadership"],
-    date: "February 18, 2026",
-    readTime: "4 min read",
-    author: "Rina Das",
-    accent: "from-[#f97316] via-[#ec4899] to-[#6366f1]",
-  },
-];
 
 const series: Series[] = [
   {
@@ -169,16 +40,16 @@ const series: Series[] = [
   },
 ];
 
-const categories = ["All", "AI", "Engineering", "Product", "Security", "Design", "Culture", "Operations"];
-
 const BlogsPage = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
+  const categories = useMemo(() => ["All", ...new Set(blogs.map((post) => post.category))], []);
+
   const filteredPosts = useMemo(() => {
     const query = searchTerm.trim().toLowerCase();
 
-    return posts.filter((post) => {
+    return blogs.filter((post) => {
       const matchesCategory = activeCategory === "All" || post.category === activeCategory;
       if (!matchesCategory) return false;
 
@@ -188,7 +59,7 @@ const BlogsPage = () => {
     });
   }, [activeCategory, searchTerm]);
 
-  const featuredPosts = posts.filter((post) => post.featured);
+  const featuredPosts = blogs.filter((post) => post.featured);
 
   return (
     <div className="bg-white text-slate-900">
@@ -301,56 +172,7 @@ const BlogsPage = () => {
 
           <div className="grid gap-4 md:grid-cols-3">
             {featuredPosts.map((post) => (
-              <article
-                key={post.title}
-                className="group relative overflow-hidden rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_25px_80px_-48px_rgba(15,23,42,0.28)] transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_32px_110px_-60px_rgba(15,23,42,0.32)]"
-              >
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(135deg, rgba(255,255,255,0.08), transparent 40%), linear-gradient(120deg, rgba(255,255,255,0.05), transparent 38%)",
-                    backgroundSize: "200% 200%",
-                    animation: "gradient-shift 18s ease-in-out infinite",
-                  }}
-                  aria-hidden
-                />
-
-                <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${post.accent} px-3 py-1 text-xs font-semibold text-white shadow-[0_14px_30px_rgba(15,23,42,0.32)]`}>
-                  <FiTrendingUp size={14} aria-hidden />
-                  Featured
-                </div>
-
-                <div className="mt-4 flex flex-col gap-3">
-                  <div className="flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-slate-500">
-                    <span>{post.category}</span>
-                    <span className="h-1 w-1 rounded-full bg-slate-300" />
-                    <span>{post.date}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-slate-900 transition-colors duration-200 group-hover:text-primary">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate-600">{post.summary}</p>
-                  <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-500">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-slate-700">
-                      <FiClock size={14} aria-hidden />
-                      {post.readTime}
-                    </span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-slate-700">
-                      <FiBookOpen size={14} aria-hidden />
-                      {post.author}
-                    </span>
-                  </div>
-                </div>
-
-                <Link
-                  href="#"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:gap-3"
-                >
-                  Read the playbook
-                  <FiArrowRight size={16} aria-hidden />
-                </Link>
-              </article>
+              <BlogCard key={post.slug} post={post} variant="featured" />
             ))}
           </div>
         </div>
@@ -371,40 +193,7 @@ const BlogsPage = () => {
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filteredPosts.map((post) => (
-              <article
-                key={post.title}
-                className="group flex h-full flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_22px_70px_-52px_rgba(15,23,42,0.35)] transition duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_30px_100px_-60px_rgba(15,23,42,0.32)]"
-              >
-                <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-slate-500">
-                  <span>{post.category}</span>
-                  <span className="flex items-center gap-2 text-[11px] font-semibold text-slate-500">
-                    <FiClock size={14} aria-hidden />
-                    {post.readTime}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 transition-colors duration-200 group-hover:text-primary">
-                  {post.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-600">{post.summary}</p>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700"
-                    >
-                      <FiTag size={12} aria-hidden />
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-auto flex items-center justify-between text-sm font-semibold text-primary">
-                  <Link href="#" className="inline-flex items-center gap-2 transition group-hover:gap-3">
-                    Read article
-                    <FiArrowRight size={16} aria-hidden />
-                  </Link>
-                  <span className="text-slate-500">{post.date}</span>
-                </div>
-              </article>
+              <BlogCard key={post.slug} post={post} />
             ))}
           </div>
 
@@ -457,7 +246,7 @@ const BlogsPage = () => {
                     <FiFeather size={14} aria-hidden />
                     {item.focus}
                   </span>
-                  <Link href="#" className="inline-flex items-center gap-2 text-primary transition group-hover:gap-3">
+                  <Link href="/blogs" className="inline-flex items-center gap-2 text-primary transition group-hover:gap-3">
                     View all
                     <FiArrowRight size={16} aria-hidden />
                   </Link>

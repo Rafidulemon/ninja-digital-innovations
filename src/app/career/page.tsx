@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "@/components/button/Button";
+import jobsData from "@/app/data/jobs.json";
 import {
   FiAward,
   FiCoffee,
@@ -8,14 +9,13 @@ import {
   FiGlobe,
   FiHeart,
   FiLayers,
-  FiMapPin,
   FiMoon,
   FiShield,
-  FiUsers,
   FiZap,
 } from "react-icons/fi";
 
 type Role = {
+  id: string;
   title: string;
   location: string;
   type: string;
@@ -23,40 +23,7 @@ type Role = {
   tags: string[];
 };
 
-const roles: Role[] = [
-  {
-    title: "Senior Full-Stack Engineer",
-    location: "Remote • APAC / JST ±4h",
-    type: "Full-time",
-    summary:
-      "Lead feature squads building secure, AI-assisted web platforms. Own architecture, delivery, and quality.",
-    tags: ["Next.js", "TypeScript", "Node", "Cloud", "Security"],
-  },
-  {
-    title: "Applied ML Engineer",
-    location: "Hybrid • Tokyo",
-    type: "Full-time",
-    summary:
-      "Ship LLM and predictive features from data contracts to evaluation loops with strong MLOps hygiene.",
-    tags: ["LLMs", "Python", "MLOps", "Vector DBs", "Eval"],
-  },
-  {
-    title: "Product Designer",
-    location: "Remote • Global",
-    type: "Contract-to-hire",
-    summary:
-      "Design elegant, high-performing product experiences across web and mobile with strong systems thinking.",
-    tags: ["Design Systems", "Figma", "Motion", "UX Research"],
-  },
-  {
-    title: "Security Engineer",
-    location: "Remote • APAC",
-    type: "Full-time",
-    summary:
-      "Embed security by design—threat modeling, IaC guardrails, appsec automation, and incident playbooks.",
-    tags: ["AppSec", "IaC", "Threat Modeling", "Zero Trust"],
-  },
-];
+const roles: Role[] = (jobsData as Role[]).filter((job) => job.id !== "open-application");
 
 const perks = [
   { icon: FiGlobe, title: "Remote-first, global", text: "Build with teammates across APAC, US, and EU time zones." },
@@ -128,12 +95,6 @@ const CareerPage = () => {
             >
               View open roles
             </Link>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center rounded-[12px] bg-gradient-to-r from-primary via-[#6d36dc] to-[#4b50e6] px-6 py-2 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(76,49,201,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(76,49,201,0.45)]"
-            >
-              Refer a teammate
-            </Link>
           </div>
         </div>
       </section>
@@ -189,9 +150,9 @@ const CareerPage = () => {
           </div>
 
           <div className="space-y-4">
-            {roles.map(({ title, location, type, summary, tags }) => (
+            {roles.map(({ id, title, location, type, summary, tags }) => (
               <article
-                key={title}
+                key={id}
                 className="group flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_22px_70px_-50px_rgba(15,23,42,0.32)] transition duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_30px_100px_-60px_rgba(15,23,42,0.32)]"
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -217,11 +178,10 @@ const CareerPage = () => {
                   ))}
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <Button theme="primary" className="px-5 py-2 text-xs font-semibold">
-                    Apply now
-                  </Button>
-                  <Link href="/contact" className="text-xs font-semibold text-primary hover:underline">
-                    Refer someone
+                  <Link href={`/career/apply/${id}`}>
+                    <Button theme="primary" className="px-5 py-2 text-xs font-semibold">
+                      Apply now
+                    </Button>
                   </Link>
                 </div>
               </article>
@@ -306,9 +266,11 @@ const CareerPage = () => {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <Button theme="primary" className="px-5 py-2 text-sm font-semibold">
-              Send an open application
-            </Button>
+            <Link href="/career/apply/open-application">
+              <Button theme="primary" className="px-5 py-2 text-sm font-semibold">
+                Send an open application
+              </Button>
+            </Link>
             <Link href="/contact" className="text-sm font-semibold text-primary hover:underline">
               Talk to a human
             </Link>

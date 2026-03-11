@@ -9,6 +9,7 @@ type Props = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   isWidthFull?: boolean;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 const Button = (props: Props) => {
@@ -19,6 +20,7 @@ const Button = (props: Props) => {
     onClick,
     isWidthFull = false,
     type = "button",
+    disabled = false,
   } = props;
 
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -27,14 +29,13 @@ const Button = (props: Props) => {
   const debouncedOnClick = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       const now = Date.now();
+      if (disabled) return;
       if (now - lastClickTimestamp.current > 200) {
-        if (onClick) {
-          onClick(e);
-        }
+        onClick?.(e);
       }
       lastClickTimestamp.current = now;
     },
-    [onClick]
+    [onClick, disabled]
   );
 
   useEffect(() => {
@@ -46,11 +47,11 @@ const Button = (props: Props) => {
     }
   }, [isClicked]);
 
-  const base = `${isWidthFull ? "w-full" : "w-fit"} cursor-pointer rounded-lg font-medium transition duration-200 px-4 py-2`;
+  const base = `${isWidthFull ? "w-full" : "w-fit"} rounded-lg font-medium transition duration-200 px-4 py-2`;
 
   const themeClasses: Record<NonNullable<Props["theme"]>, string> = {
     primary:
-      "bg-primary text-white hover:border hover:border-primary hover:bg-white hover:text-primary",
+      "bg-primary text-white hover:border hover:border-primary hover:bg-white",
     secondary:
       "border border-primary bg-white text-primary hover:bg-primary hover:text-white",
     cancel:
@@ -65,11 +66,12 @@ const Button = (props: Props) => {
   return (
     <button
       type={type}
+      disabled={disabled}
       onClick={(e) => {
         setIsClicked(true);
         debouncedOnClick(e);
       }}
-      className={`${base} ${themeClasses[theme]} ${className ?? ""}`}
+      className={`${base} ${themeClasses[theme]} ${disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"} ${className ?? ""}`}
       onFocus={() => {}}
     >
       <span className="flex flex-col justify-center">{children}</span>

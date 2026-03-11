@@ -1,0 +1,136 @@
+[
+  {
+    "id": "senior-fullstack-engineer",
+    "title": "Senior Full-Stack Engineer",
+    "summary": "Lead feature squads building secure, AI-assisted web platforms. Own architecture, delivery, and quality.",
+    "description": "You will ship end-to-end product increments across web and API surfaces, pairing closely with design and platform teams. You will set engineering direction, keep quality high, and mentor teammates while staying hands-on.",
+    "location": "Dhaka, Bangladesh",
+    "type": "Full-time",
+    "tags": ["Next.js", "TypeScript", "Node", "Cloud", "Security"],
+    "responsibilities": [
+      "Lead delivery of web features with secure-by-default patterns (feature flags, IaC, CI quality gates)",
+      "Design and review service and API contracts with product and design partners",
+      "Pair with platform to keep observability, cost, and performance budgets honest",
+      "Mentor engineers through design docs, pairing, and thoughtful code reviews"
+    ],
+    "requirements": [
+      "5+ years building production web apps with TypeScript/React/Next.js",
+      "Solid backend foundations (Node, API design, databases, queues)",
+      "Experience with cloud infra and security basics (IAM, secrets, least privilege)",
+      "Comfort reading traces/logs and debugging performance issues"
+    ],
+    "niceToHave": [
+      "Experience with LLM apps (RAG, tool use)",
+      "IaC experience (Terraform/CDK)",
+      "Leading small squads or projects"
+    ],
+    "perks": [
+      "Compensation: BDT 280,000 – 360,000 / month (gross, DOE)",
+      "Remote-first with flexible hours",
+      "Learning budget and conference stipend",
+      "Wellness stipend and local holiday swaps",
+      "Top-tier equipment and subscriptions"
+    ]
+  },
+  {
+    "id": "applied-ml-engineer",
+    "title": "Applied ML Engineer",
+    "summary": "Ship LLM and predictive features from data contracts to evaluation loops with strong MLOps hygiene.",
+    "description": "You will prototype and productionize ML features with a focus on reliability, safety, and observability. You partner with product, data, and security to deliver grounded AI experiences.",
+    "location": "Dhaka, Bangladesh",
+    "type": "Full-time",
+    "tags": ["LLMs", "Python", "MLOps", "Vector DBs", "Evaluation"],
+    "responsibilities": [
+      "Design retrieval and routing pipelines for LLM applications",
+      "Build eval harnesses and guardrails for prompts and agents",
+      "Productionize models with CI/CD, feature flags, and canary rollouts",
+      "Collaborate with security on data privacy, redaction, and compliance"
+    ],
+    "requirements": [
+      "4+ years in ML/ML Ops with production launches",
+      "Python expertise and comfort with modern LLM tooling",
+      "Experience with embeddings/vector search and evaluation methodologies",
+      "Strong data engineering foundations (batch + streaming is a plus)"
+    ],
+    "niceToHave": ["Kubernetes experience", "Multilingual NLP experience"],
+    "perks": [
+      "Compensation: BDT 300,000 – 400,000 / month (gross, DOE)",
+      "Hybrid Tokyo office with travel support",
+      "LLM credits + experimentation budget",
+      "Quarterly learning days",
+      "Competitive comp with equity options"
+    ]
+  },
+  {
+    "id": "product-designer",
+    "title": "Product Designer",
+    "summary": "Design elegant, high-performing product experiences across web and mobile with strong systems thinking.",
+    "description": "You will shape product experiences end to end: discovery, UX flows, visual systems, and motion. You collaborate tightly with engineers to keep designs buildable and accessible.",
+    "location": "Dhaka, Bangladesh",
+    "type": "Contract-to-hire",
+    "tags": ["Design Systems", "Figma", "Motion", "UX Research"],
+    "responsibilities": [
+      "Run discovery with PMs and users to frame problems and hypotheses",
+      "Create flows, wireframes, prototypes, and production-ready UI specs",
+      "Evolve our design system with accessibility and motion standards",
+      "Partner with engineering to validate feasibility and polish quality"
+    ],
+    "requirements": [
+      "3+ years in product design with shipped work",
+      "Strong systems and interaction design skills",
+      "Experience collaborating with engineers in fast-paced teams",
+      "Comfort with motion and accessibility best practices"
+    ],
+    "perks": [
+      "Compensation: BDT 220,000 – 300,000 / month (gross, DOE)",
+      "Remote-friendly with async rituals",
+      "Annual learning stipend",
+      "Wellbeing and gear budget",
+      "Opportunities to lead brand/motion initiatives"
+    ]
+  },
+  {
+    "id": "security-engineer",
+    "title": "Security Engineer",
+    "summary": "Embed security by design—threat modeling, IaC guardrails, appsec automation, and incident playbooks.",
+    "description": "You will harden our products and platform with secure defaults. You coach teams, build tooling, and keep incident readiness sharp.",
+    "location": "Dhaka, Bangladesh",
+    "type": "Full-time",
+    "tags": ["AppSec", "IaC", "Threat Modeling", "Zero Trust"],
+    "responsibilities": [
+      "Own threat models and drive remediation with product squads",
+      "Automate security checks in CI/CD and IaC pipelines",
+      "Run incident simulations and improve playbooks",
+      "Partner with clients on compliance and secure delivery"
+    ],
+    "requirements": [
+      "4+ years in application or cloud security",
+      "Experience with IaC (Terraform/CDK) and CI/CD security tooling",
+      "Ability to influence engineering teams through coaching",
+      "Strong fundamentals in identity, secrets, and network controls"
+    ],
+    "perks": [
+      "Compensation: BDT 260,000 – 340,000 / month (gross, DOE)",
+      "Remote-first with flexible hours",
+      "Incident response training budget",
+      "Wellness and home office stipend",
+      "Path to lead security practice"
+    ]
+  },
+  {
+    "id": "open-application",
+    "title": "Open Application",
+    "summary": "Don’t see the exact role? Tell us how you can help ship resilient, AI-forward products.",
+    "description": "Share your craft, interests, and the kind of impact you want to make. We review every open application for future roles and projects.",
+    "location": "Dhaka, Bangladesh",
+    "type": "Flexible",
+    "tags": ["Engineering", "Design", "Product", "Ops"],
+    "responsibilities": ["Describe your craft, interests, and the impact you want to make"],
+    "requirements": ["Portfolio, repo, or examples of work"],
+    "niceToHave": [],
+    "perks": [
+      "Compensation: Let's discuss based on craft and fit",
+      "We’ll reach out when there’s a strong fit"
+    ]
+  }
+]
